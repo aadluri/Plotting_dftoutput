@@ -1,2 +1,3 @@
 # Plotting_Siesta
-Small scripts for plotting Siesta Outputs
+A place to store my simple python scripts for plotting SIESTA  outputs
+Includes PDOS, COHP and fixing fermi level for PDOS plots
