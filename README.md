@@ -1,6 +1,6 @@
-# All my Siesta Scripts plus some simple plotting Jupyter notebooks
+# All my SIESTA scripts plus some simple plotting Jupyter notebooks
 
-### Mainly a place for me to keep scripts and share with research group members
+#### Mainly a place for me to keep scripts and share with research group members
 
 <hr style="border:2px solid gray"> </hr>
 
