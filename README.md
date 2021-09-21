@@ -1,3 +1,5 @@
-# Plotting_Siesta
-A place to store my simple python scripts for plotting SIESTA  outputs
-Includes PDOS, COHP and fixing fermi level for PDOS plots
+# PLotting files
+A place to store my simple python scripts for plotting output from various comp chem calculations
+
+
+*Plotting_DOS* plots siesta outputs for DOS, COHP, COOP from siesta_dos folder
