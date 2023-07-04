@@ -1,0 +1,2057 @@
+Siesta Version:                                        siesta-3.1
+Architecture  : x86_64-unknown-linux-gnu--Intel
+Compiler flags: mpif90 -O3 -xSSSE3 -axSSE4.2,SSE4.1 -ip
+PARALLEL version
+NetCDF support
+
+* Running on   64 nodes in parallel
+>> Start of run:  10-MAY-2013  13:02:59
+
+                           ***********************       
+                           *  WELCOME TO SIESTA  *       
+                           ***********************       
+
+reinit: Reading from standard input
+************************** Dump of input data file ****************************
+SystemName      optical
+SystemLabel     optical
+NumberOfAtoms   1282
+NumberOfSpecies 4
+MD.TypeOfRun    CG
+MD.NumCGsteps   0
+MD.ConstantVolume  .true.
+SolutionMethod  diagon
+XC.functional   GGA
+XC.authors      PBE
+PAO.BasisSize   DZP
+DM.NumberPulay  7
+DM.MixingWeight 0.1
+DirectPhi       .true.
+SaveMemory      .true.
+MeshCutoff      500 Ry
+MaxSCFiterations 200
+UseSaveData     .true.
+WriteMullikenPop 1
+PAO.EnergyShift 0.001 Ry
+WriteDM.NetCDF .false.
+WriteDMHS.NetCDF .false.
+%block ExternalElectricField
+  0.000 0.000 0.100 V/nm
+%endblock ExternalElectricField
+%block PolarizationGrids
+  10   3   3
+  3   10   3
+  3    3  10
+%endblock PolarizationGrids
+%block ChemicalSpeciesLabel
+ 1   1   H
+ 2   6   C
+ 3   9   F
+ 4  47   Ag
+%endblock ChemicalSpeciesLabel
+LatticeConstant 1.0 Ang
+%block LatticeParameters
+  22.534   24.472   23.649   90.0 90.0 90.0
+%endblock LatticeParameters
+AtomicCoordinatesFormat Ang
+%block AtomicCoordinatesAndAtomicSpecies < struct.coor
+%endblock AtomicCoordinatesAndAtomicSpecies
+************************** End of input data file *****************************
+
+reinit: -----------------------------------------------------------------------
+reinit: System Name: optical
+reinit: -----------------------------------------------------------------------
+reinit: System Label: optical                                                     
+reinit: -----------------------------------------------------------------------
+
+initatom: Reading input for the pseudopotentials and atomic orbitals ----------
+ Species number:            1  Label: H Atomic number:           1
+ Species number:            2  Label: C Atomic number:           6
+ Species number:            3  Label: F Atomic number:           9
+ Species number:            4  Label: Ag Atomic number:          47
+Ground state valence configuration:   1s01
+Reading pseudopotential information in formatted form from H.psf
+
+Valence configuration for pseudopotential generation:
+1s( 1.00) rc: 1.33
+2p( 0.00) rc: 1.33
+3d( 0.00) rc: 0.37
+4f( 0.00) rc: 1.33
+Ground state valence configuration:   2s02  2p02
+Reading pseudopotential information in formatted form from C.psf
+
+Valence configuration for pseudopotential generation:
+2s( 2.00) rc: 1.56
+2p( 2.00) rc: 1.56
+3d( 0.00) rc: 1.56
+4f( 0.00) rc: 1.56
+Ground state valence configuration:   2s02  2p05
+Reading pseudopotential information in formatted form from F.psf
+
+Valence configuration for pseudopotential generation:
+2s( 2.00) rc: 1.41
+2p( 5.00) rc: 1.41
+3d( 0.00) rc: 1.41
+4f( 0.00) rc: 1.41
+Ground state valence configuration:   5s01  4d10
+Reading pseudopotential information in formatted form from Ag.psf
+
+Valence configuration for pseudopotential generation:
+5s( 1.00) rc: 2.52
+5p( 0.00) rc: 2.72
+4d(10.00) rc: 2.52
+4f( 0.00) rc: 2.52
+For H, standard SIESTA heuristics set lmxkb to 2
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+For C, standard SIESTA heuristics set lmxkb to 3
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+For F, standard SIESTA heuristics set lmxkb to 3
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+For Ag, standard SIESTA heuristics set lmxkb to 3
+ (one more than the basis l, including polarization orbitals).
+Use PS.lmax or PS.KBprojectors blocks to override.
+
+<basis_specs>
+===============================================================================
+H                    Z=   1    Mass=  1.0100        Charge= 0.17977+309
+Lmxo=0 Lmxkb= 2    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=1
+          n=1  nzeta=2  polorb=1
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+atom: Called for H                     (Z =   1)
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM 3.2.2 Troullier-Martins                       
+Total valence charge:    1.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  1.2656
+V l=1 = -2*Zval/r beyond r=  1.2498
+V l=2 = -2*Zval/r beyond r=  0.3563
+All V_l potentials equal beyond r=  1.2656
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  1.2656
+
+VLOCAL1: 99.0% of the norm of Vloc inside     27.100 Ry
+VLOCAL1: 99.9% of the norm of Vloc inside     61.762 Ry
+atom: Maximum radius for 4*pi*r*r*local-pseudopot. charge    1.48935
+atom: Maximum radius for r*vlocal+2*Zval:    1.24984
+GHOST: No ghost state for L =  0
+GHOST: No ghost state for L =  1
+GHOST: No ghost state for L =  2
+
+KBgen: Kleinman-Bylander projectors: 
+   l= 0   rc=  1.398961   el= -0.477209   Ekb= -2.001853   kbcos= -0.352188
+   l= 1   rc=  1.470814   el=  0.001006   Ekb= -0.423408   kbcos= -0.024395
+   l= 2   rc=  1.489346   el=  0.001895   Ekb= -0.481957   kbcos= -0.001574
+
+KBgen: Total number of  Kleinman-Bylander projectors:    9
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 1s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    7.026209
+                 energy =   -0.476258
+                kinetic =    0.873901
+    potential(screened) =   -1.350160
+       potential(ionic) =   -1.868508
+
+   izeta = 2
+                 rmatch =    4.103729
+              splitnorm =    0.150000
+                 energy =   -0.388153
+                kinetic =    1.411813
+    potential(screened) =   -1.799966
+       potential(ionic) =   -2.346436
+
+POLgen: Perturbative polarization orbital with L=  1
+
+POLgen: Polarization orbital for state 1s
+
+   izeta = 1
+                     rc =    7.026209
+                 energy =    0.513491
+                kinetic =    1.100165
+    potential(screened) =   -0.586674
+       potential(ionic) =   -1.048593
+atom: Total number of Sankey-type orbitals:  5
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 1s( 1.00)                                                            
+Vna: chval, zval:    1.00000   1.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   7.026209
+
+atom: _________________________________________________________________________
+
+<basis_specs>
+===============================================================================
+C                    Z=   6    Mass=  12.010        Charge= 0.17977+309
+Lmxo=1 Lmxkb= 3    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=2
+          n=1  nzeta=2  polorb=0
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=1  Nsemic=0  Cnfigmx=2
+          n=1  nzeta=2  polorb=1
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+L=3  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+atom: Called for C                     (Z =   6)
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM 3.2.2 Troullier-Martins                       
+Total valence charge:    4.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  1.5227
+V l=1 = -2*Zval/r beyond r=  1.5227
+V l=2 = -2*Zval/r beyond r=  1.5227
+V l=3 = -2*Zval/r beyond r=  1.5227
+All V_l potentials equal beyond r=  1.4851
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  1.5227
+
+VLOCAL1: 99.0% of the norm of Vloc inside     19.682 Ry
+VLOCAL1: 99.9% of the norm of Vloc inside     44.856 Ry
+atom: Maximum radius for 4*pi*r*r*local-pseudopot. charge    1.79142
+atom: Maximum radius for r*vlocal+2*Zval:    1.54183
+GHOST: No ghost state for L =  0
+GHOST: No ghost state for L =  1
+GHOST: No ghost state for L =  2
+GHOST: No ghost state for L =  3
+
+KBgen: Kleinman-Bylander projectors: 
+   l= 0   rc=  1.661951   el= -1.010689   Ekb=  5.289847   kbcos=  0.316429
+   l= 1   rc=  1.661951   el= -0.388490   Ekb= -4.102504   kbcos= -0.351025
+   l= 2   rc=  1.747182   el=  0.001971   Ekb= -1.006005   kbcos= -0.008530
+   l= 3   rc=  1.791422   el=  0.003065   Ekb= -0.421399   kbcos= -0.001072
+
+KBgen: Total number of  Kleinman-Bylander projectors:   16
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 2s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    5.801806
+                 energy =   -1.009895
+                kinetic =    0.828418
+    potential(screened) =   -1.838313
+       potential(ionic) =   -5.395016
+
+   izeta = 2
+                 rmatch =    3.475094
+              splitnorm =    0.150000
+                 energy =   -0.868818
+                kinetic =    1.308521
+    potential(screened) =   -2.177339
+       potential(ionic) =   -5.999546
+
+SPLIT: Orbitals with angular momentum L= 1
+
+SPLIT: Basis orbitals for state 2p
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    7.449784
+                 energy =   -0.387666
+                kinetic =    2.318076
+    potential(screened) =   -2.705742
+       potential(ionic) =   -6.097636
+
+   izeta = 2
+                 rmatch =    3.792903
+              splitnorm =    0.150000
+                 energy =   -0.276721
+                kinetic =    3.399803
+    potential(screened) =   -3.676524
+       potential(ionic) =   -7.455899
+
+POLgen: Perturbative polarization orbital with L=  2
+
+POLgen: Polarization orbital for state 2p
+
+   izeta = 1
+                     rc =    7.449784
+                 energy =    0.929908
+                kinetic =    1.970732
+    potential(screened) =   -1.040824
+       potential(ionic) =   -3.695745
+atom: Total number of Sankey-type orbitals: 13
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 2s( 2.00)                                                            
+ 2p( 2.00)                                                            
+Vna: chval, zval:    4.00000   4.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   7.449784
+
+atom: _________________________________________________________________________
+
+<basis_specs>
+===============================================================================
+F                    Z=   9    Mass=  19.000        Charge= 0.17977+309
+Lmxo=1 Lmxkb= 3    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=2
+          n=1  nzeta=2  polorb=0
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=1  Nsemic=0  Cnfigmx=2
+          n=1  nzeta=2  polorb=1
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+L=3  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+atom: Called for F                     (Z =   9)
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM 3.2.2 Troullier-Martins                       
+Total valence charge:    7.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  1.3199
+V l=1 = -2*Zval/r beyond r=  1.3199
+V l=2 = -2*Zval/r beyond r=  1.3199
+V l=3 = -2*Zval/r beyond r=  1.3199
+All V_l potentials equal beyond r=  1.3199
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  1.3199
+
+VLOCAL1: 99.0% of the norm of Vloc inside     24.916 Ry
+VLOCAL1: 99.9% of the norm of Vloc inside     56.784 Ry
+atom: Maximum radius for 4*pi*r*r*local-pseudopot. charge    1.61221
+atom: Maximum radius for r*vlocal+2*Zval:    1.38760
+GHOST: No ghost state for L =  0
+GHOST: No ghost state for L =  1
+GHOST: No ghost state for L =  2
+GHOST: No ghost state for L =  3
+
+KBgen: Kleinman-Bylander projectors: 
+   l= 0   rc=  1.495695   el= -2.197581   Ekb=  5.601452   kbcos=  0.238748
+   l= 1   rc=  1.458760   el= -0.816694   Ekb= -9.171639   kbcos= -0.518972
+   l= 2   rc=  1.552860   el=  0.001997   Ekb= -1.845583   kbcos= -0.004774
+   l= 3   rc=  1.592177   el=  0.003102   Ekb= -0.701684   kbcos= -0.000616
+
+KBgen: Total number of  Kleinman-Bylander projectors:   16
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 2s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    4.066195
+                 energy =   -2.196755
+                kinetic =    1.966455
+    potential(screened) =   -4.163210
+       potential(ionic) =  -14.868929
+
+   izeta = 2
+                 rmatch =    2.259523
+              splitnorm =    0.150000
+                 energy =   -1.883468
+                kinetic =    3.053766
+    potential(screened) =   -4.937234
+       potential(ionic) =  -16.545925
+
+SPLIT: Orbitals with angular momentum L= 1
+
+SPLIT: Basis orbitals for state 2p
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    5.221176
+                 energy =   -0.815825
+                kinetic =    5.800203
+    potential(screened) =   -6.616028
+       potential(ionic) =  -16.867051
+
+   izeta = 2
+                 rmatch =    2.375385
+              splitnorm =    0.150000
+                 energy =   -0.513701
+                kinetic =    8.562067
+    potential(screened) =   -9.075768
+       potential(ionic) =  -20.580843
+
+POLgen: Perturbative polarization orbital with L=  2
+
+POLgen: Polarization orbital for state 2p
+
+   izeta = 1
+                     rc =    5.221176
+                 energy =    2.534714
+                kinetic =    5.071044
+    potential(screened) =   -2.536330
+       potential(ionic) =  -10.352162
+atom: Total number of Sankey-type orbitals: 13
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 2s( 2.00)                                                            
+ 2p( 5.00)                                                            
+Vna: chval, zval:    7.00000   7.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   5.221176
+
+atom: _________________________________________________________________________
+
+<basis_specs>
+===============================================================================
+Ag                   Z=  47    Mass=  107.87        Charge= 0.17977+309
+Lmxo=2 Lmxkb= 3    BasisType=split      Semic=F
+L=0  Nsemic=0  Cnfigmx=5
+          n=1  nzeta=2  polorb=1
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+L=1  Nsemic=0  Cnfigmx=5
+L=2  Nsemic=0  Cnfigmx=4
+          n=1  nzeta=2  polorb=0
+            splnorm:   0.15000    
+               vcte:    0.0000    
+               rinn:    0.0000    
+                rcs:    0.0000      0.0000    
+            lambdas:    1.0000      1.0000    
+-------------------------------------------------------------------------------
+L=0  Nkbl=1  erefs: 0.17977+309
+L=1  Nkbl=1  erefs: 0.17977+309
+L=2  Nkbl=1  erefs: 0.17977+309
+L=3  Nkbl=1  erefs: 0.17977+309
+===============================================================================
+</basis_specs>
+
+atom: Called for Ag                    (Z =  47)
+
+read_vps: Pseudopotential generation method:
+read_vps: ATM 3.2.2 Troullier-Martins                       
+Total valence charge:   11.00000
+
+xc_check: Exchange-correlation functional:
+xc_check: GGA Perdew, Burke & Ernzerhof 1996
+V l=0 = -2*Zval/r beyond r=  2.4592
+V l=1 = -2*Zval/r beyond r=  2.6507
+V l=2 = -2*Zval/r beyond r=  2.4592
+V l=3 = -2*Zval/r beyond r=  2.4592
+All V_l potentials equal beyond r=  2.6507
+This should be close to max(r_c) in ps generation
+All pots = -2*Zval/r beyond r=  2.6507
+
+VLOCAL1: 99.0% of the norm of Vloc inside      6.178 Ry
+VLOCAL1: 99.9% of the norm of Vloc inside     14.079 Ry
+atom: Maximum radius for 4*pi*r*r*local-pseudopot. charge    3.19739
+atom: Maximum radius for r*vlocal+2*Zval:    2.82168
+GHOST: No ghost state for L =  0
+GHOST: No ghost state for L =  1
+GHOST: No ghost state for L =  2
+GHOST: No ghost state for L =  3
+
+KBgen: Kleinman-Bylander projectors: 
+   l= 0   rc=  2.966357   el= -0.323666   Ekb=  3.565490   kbcos=  0.247453
+   l= 1   rc=  3.003670   el= -0.054265   Ekb=  1.619308   kbcos=  0.223076
+   l= 2   rc=  2.786631   el= -0.547066   Ekb= -7.840816   kbcos= -0.714112
+   l= 3   rc=  3.079709   el=  0.002953   Ekb= -2.732950   kbcos= -0.012571
+
+KBgen: Total number of  Kleinman-Bylander projectors:   16
+atom: -------------------------------------------------------------------------
+
+atom: SANKEY-TYPE ORBITALS:
+atom: Selected multiple-zeta basis: split     
+
+SPLIT: Orbitals with angular momentum L= 0
+
+SPLIT: Basis orbitals for state 5s
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    9.486283
+                 energy =   -0.322725
+                kinetic =    0.270535
+    potential(screened) =   -0.593260
+       potential(ionic) =   -7.743453
+
+   izeta = 2
+                 rmatch =    6.768941
+              splitnorm =    0.150000
+                 energy =   -0.277703
+                kinetic =    0.444695
+    potential(screened) =   -0.722398
+       potential(ionic) =   -8.538416
+
+SPLIT: Orbitals with angular momentum L= 2
+
+SPLIT: Basis orbitals for state 4d
+
+SPLIT: PAO cut-off radius determined from an
+SPLIT: energy shift=  0.001000 Ry
+
+   izeta = 1
+                 lambda =    1.000000
+                     rc =    5.899358
+                 energy =   -0.546288
+                kinetic =    5.940648
+    potential(screened) =   -6.486936
+       potential(ionic) =  -18.280755
+
+   izeta = 2
+                 rmatch =    2.650723
+              splitnorm =    0.150000
+                 energy =   -0.238526
+                kinetic =    8.222011
+    potential(screened) =   -8.460537
+       potential(ionic) =  -21.296963
+
+POLgen: Perturbative polarization orbital with L=  1
+
+POLgen: Polarization orbital for state 5s
+
+   izeta = 1
+                     rc =    9.486283
+                 energy =   -0.053026
+                kinetic =    0.478302
+    potential(screened) =   -0.531328
+       potential(ionic) =   -7.012902
+atom: Total number of Sankey-type orbitals: 15
+
+atm_pop: Valence configuration (for local Pseudopot. screening):
+ 5s( 1.00)                                                            
+ 5p( 0.00)                                                            
+ 4d(10.00)                                                            
+Vna: chval, zval:   11.00000  11.00000
+
+Vna:  Cut-off radius for the neutral-atom potential:   9.486283
+
+atom: _________________________________________________________________________
+
+prinput: Basis input ----------------------------------------------------------
+
+PAO.BasisType split     
+
+%block ChemicalSpeciesLabel
+    1    1 H                       # Species index, atomic number, species label
+    2    6 C                       # Species index, atomic number, species label
+    3    9 F                       # Species index, atomic number, species label
+    4   47 Ag                      # Species index, atomic number, species label
+%endblock ChemicalSpeciesLabel
+
+%block PAO.Basis                 # Define Basis set
+H                     1                    # Species label, number of l-shells
+ n=1   0   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   7.026      4.104   
+   1.000      1.000   
+C                     2                    # Species label, number of l-shells
+ n=2   0   2                         # n, l, Nzeta 
+   5.802      3.475   
+   1.000      1.000   
+ n=2   1   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   7.450      3.793   
+   1.000      1.000   
+F                     2                    # Species label, number of l-shells
+ n=2   0   2                         # n, l, Nzeta 
+   4.066      2.260   
+   1.000      1.000   
+ n=2   1   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   5.221      2.375   
+   1.000      1.000   
+Ag                    2                    # Species label, number of l-shells
+ n=5   0   2 P   1                   # n, l, Nzeta, Polarization, NzetaPol
+   9.486      6.769   
+   1.000      1.000   
+ n=4   2   2                         # n, l, Nzeta 
+   5.899      2.651   
+   1.000      1.000   
+%endblock PAO.Basis
+
+prinput: ----------------------------------------------------------------------
+
+Dumping basis to NetCDF file H.ion.nc
+Dumping basis to NetCDF file C.ion.nc
+Dumping basis to NetCDF file F.ion.nc
+Dumping basis to NetCDF file Ag.ion.nc
+coor:   Atomic-coordinates input format  =     Cartesian coordinates
+coor:                                          (in Angstroms)
+
+siesta: WARNING: XV file not found
+
+siesta: Atomic coordinates (Bohr) and species
+siesta:      7.26600  30.45106  30.20161  2        1
+siesta:      6.16240  29.56100  31.71907  1        2
+siesta:      6.11705  30.58145  28.50842  1        3
+siesta:      7.86126  32.36913  30.74397  1        4
+siesta:      9.61304  28.87503  29.66493  2        5
+siesta:     11.42151  29.61958  31.34679  3        6
+siesta:      9.04423  26.43539  30.25831  3        7
+siesta:     10.78278  28.88448  27.00420  2        8
+siesta:     12.12827  27.33490  26.91916  1        9
+siesta:      9.21242  28.46685  25.74186  1       10
+siesta:     12.05268  31.27120  25.95540  2       11
+siesta:     12.26622  30.90837  23.42316  3       12
+siesta:     10.38216  33.22896  26.12547  3       13
+siesta:     14.68129  32.15937  26.96640  2       14
+siesta:     15.20663  30.93861  28.51787  1       15
+siesta:     16.10425  31.84190  25.49997  1       16
+siesta:     14.98175  34.89948  27.86402  2       17
+siesta:     14.35248  36.44149  25.88170  3       18
+siesta:     13.16384  35.36813  29.63281  3       19
+siesta:     17.51399  35.90292  28.89014  2       20
+siesta:     18.98042  34.49318  28.58401  1       21
+siesta:     17.96374  37.52809  27.69395  1       22
+siesta:     17.69918  36.84967  31.63970  2       23
+siesta:     20.05567  37.85690  31.93072  3       24
+siesta:     16.09669  38.86601  31.82867  3       25
+siesta:     17.20407  35.08845  33.92249  2       26
+siesta:     17.03589  36.29598  35.60245  1       27
+siesta:     15.38616  34.16437  33.62391  1       28
+siesta:     19.10703  32.96062  34.61224  2       29
+siesta:     17.72186  31.15971  35.83489  3       30
+siesta:     19.91394  31.77198  32.47685  3       31
+siesta:     21.40872  33.59934  36.28654  2       32
+siesta:     22.27799  35.29443  35.50608  1       33
+siesta:     20.67928  34.06989  38.14792  1       34
+siesta:     23.55167  31.65859  36.68716  2       35
+siesta:     24.62692  31.28632  34.38358  3       36
+siesta:     25.34880  32.83400  38.08556  3       37
+siesta:     23.01687  29.07912  37.92682  2       38
+siesta:     21.16683  29.20951  38.78664  1       39
+siesta:     22.90349  27.68450  36.40937  1       40
+siesta:     24.83857  27.96796  39.91292  2       41
+siesta:     24.57779  29.39470  42.02564  3       42
+siesta:     23.90693  25.66438  40.56677  3       43
+siesta:     27.71095  27.74308  39.44049  2       44
+siesta:     28.49519  29.63092  39.30065  1       45
+siesta:     28.49141  26.91538  41.16203  1       46
+siesta:     28.75786  26.19350  37.18227  2       47
+siesta:     27.53899  23.92772  37.12179  3       48
+siesta:     27.96418  27.40482  35.07333  3       49
+siesta:     31.63025  25.74753  36.86668  2       50
+siesta:     31.95717  25.55478  34.85223  1       51
+siesta:     32.55621  27.47852  37.48462  1       52
+siesta:     32.93227  23.54222  38.27642  2       53
+siesta:     35.21884  24.44740  39.07010  3       54
+siesta:     31.64159  23.11892  40.48362  3       55
+siesta:     33.38014  21.02132  36.91770  2       56
+siesta:     31.58301  19.97819  36.95928  1       57
+siesta:     33.81855  21.41816  34.95239  1       58
+siesta:     35.44561  19.21285  37.90225  2       59
+siesta:     35.05632  16.92817  36.79487  3       60
+siesta:     37.71328  19.90638  36.91204  3       61
+siesta:     35.79521  18.69129  40.75574  2       62
+siesta:     34.50452  19.86103  41.80832  1       63
+siesta:     35.22640  16.75243  41.10534  1       64
+siesta:     38.41815  18.92561  42.02186  2       65
+siesta:     38.02886  18.53633  44.53897  3       66
+siesta:     39.81277  16.86014  41.29998  3       67
+siesta:     40.12457  21.28210  41.74407  2       68
+siesta:     41.89336  20.62448  40.89558  1       69
+siesta:     39.22506  22.58413  40.38346  1       70
+siesta:     40.83322  22.82223  44.08733  2       71
+siesta:     42.17303  21.32557  45.67470  3       72
+siesta:     42.56421  24.56078  43.23317  3       73
+siesta:     38.77720  24.25087  45.60667  2       74
+siesta:     38.48807  26.04233  44.66181  1       75
+siesta:     36.99329  23.21340  45.45738  1       76
+siesta:     39.20994  24.89337  48.43937  2       77
+siesta:     41.55509  25.90249  48.65858  3       78
+siesta:     37.65470  26.86058  48.96471  3       79
+siesta:     38.76775  22.93562  50.59555  2       80
+siesta:     38.26130  24.00331  52.29441  1       81
+siesta:     37.11235  21.82257  50.04375  1       82
+siesta:     40.81999  21.04589  51.47049  2       83
+siesta:     43.15002  21.82446  50.68247  3       84
+siesta:     40.95227  21.21974  54.03485  3       85
+siesta:     40.58188  18.20563  50.77318  2       86
+siesta:     40.84456  18.06390  48.74550  1       87
+siesta:     42.10311  17.22675  51.69537  1       88
+siesta:     38.15737  16.69196  51.39490  2       89
+siesta:     37.21061  17.64438  53.59643  3       90
+siesta:     36.36779  17.25888  49.63179  3       91
+siesta:     38.27264  13.80068  51.71616  2       92
+siesta:     40.12835  13.29234  52.39079  1       93
+siesta:     36.95550  13.36226  53.21093  1       94
+siesta:     37.65281  11.93363  49.53730  2       95
+siesta:     39.43671  10.06658  49.67525  3       96
+siesta:     35.43994  10.76199  50.13256  3       97
+siesta:     37.43549  12.80290  46.75373  2       98
+siesta:     35.57789  13.65139  46.48539  1       99
+siesta:     38.85089  14.26933  46.46083  1      100
+siesta:     37.77753  10.87160  44.56543  2      101
+siesta:     36.73251  11.90339  42.43382  3      102
+siesta:     40.28142  10.72231  44.03631  3      103
+siesta:     36.68527   8.16740  44.80920  2      104
+siesta:     37.20305   7.50600  46.69137  1      105
+siesta:     34.63680   8.28456  44.76196  1      106
+siesta:     37.37691   6.06791  42.92515  2      107
+siesta:     39.90536   5.54824  43.07821  3      108
+siesta:     36.28087   3.95331  43.84544  3      109
+siesta:     36.68338   6.36460  40.10945  2      110
+siesta:     34.84845   7.28301  40.03575  1      111
+siesta:     38.05721   7.65339  39.27419  1      112
+siesta:     36.48496   4.08370  38.30098  2      113
+siesta:     34.95617   4.79235  36.36779  3      114
+siesta:     38.79420   3.80780  37.16904  3      115
+siesta:     35.57789   1.41541  39.11924  2      116
+siesta:     33.98107   1.67241  40.41370  1      117
+siesta:     34.79554   0.53101  37.44494  1      118
+siesta:     37.42982  -0.49511  40.34567  2      119
+siesta:     38.42004  -1.88217  38.38413  3      120
+siesta:     39.46884   0.78235  41.23006  3      121
+siesta:     36.61535  -2.32247  42.47161  2      122
+siesta:     38.36712  -3.07081  43.28419  1      123
+siesta:     35.78576  -1.18297  43.94749  1      124
+siesta:     34.86924  -4.60715  42.01052  2      125
+siesta:     36.36401  -6.55168  41.25463  3      126
+siesta:     34.00941  -5.36493  44.31787  3      127
+siesta:     32.59212  -4.41440  40.18126  2      128
+siesta:     31.74930  -2.55869  40.41937  1      129
+siesta:     33.29888  -4.55991  38.24807  1      130
+siesta:     30.37169  -6.30602  40.43638  2      131
+siesta:     28.73141  -5.25911  42.10878  3      132
+siesta:     29.02998  -6.21342  38.22917  3      133
+siesta:     30.63058  -9.12738  41.13557  2      134
+siesta:     31.26553  -9.22187  43.08199  1      135
+siesta:     28.72196  -9.88138  41.03164  1      136
+siesta:     32.29732 -10.95097  39.58978  2      137
+siesta:     30.70428 -12.51188  38.30476  3      138
+siesta:     33.50486  -9.63761  37.73407  3      139
+siesta:     34.28343 -12.66495  40.87101  2      140
+siesta:     35.26797 -13.60603  39.29498  1      141
+siesta:     35.68560 -11.43474  41.79887  1      142
+siesta:     33.54265 -14.70963  42.80609  2      143
+siesta:     31.02176 -14.48287  43.25963  3      144
+siesta:     33.74485 -16.98864  41.65903  3      145
+siesta:     34.94483 -14.92884  45.35533  2      146
+siesta:     34.49507 -16.80156  46.08099  1      147
+siesta:     36.97062 -14.87404  44.95849  1      148
+siesta:     34.47807 -13.03156  47.52663  2      149
+siesta:     34.48185 -10.67318  46.48350  3      150
+siesta:     32.08756 -13.35848  48.41669  3      151
+siesta:     36.22228 -13.03156  49.85100  2      152
+siesta:     36.09756 -14.92884  50.64657  1      153
+siesta:     38.18193 -12.76699  49.19526  1      154
+siesta:     35.88402 -11.13805  52.05253  2      155
+siesta:     34.68027 -12.42684  53.91580  3      156
+siesta:     38.23673 -10.69585  53.01062  3      157
+siesta:     34.53098  -8.57369  51.67080  2      158
+siesta:     35.80277  -7.41529  50.52941  1      159
+siesta:     32.81511  -8.94786  50.54075  1      160
+siesta:     33.67493  -6.92396  53.91580  2      161
+siesta:     33.82611  -4.45976  53.19770  3      162
+siesta:     31.15215  -7.33781  54.08965  3      163
+siesta:     34.76908  -7.20742  56.60299  2      164
+siesta:     33.23463  -7.88205  57.80675  1      165
+siesta:     36.20339  -8.65873  56.52362  1      166
+siesta:     35.95961  -4.96809  58.07320  2      167
+siesta:     34.03776  -3.37883  58.75161  3      168
+siesta:     36.84212  -5.91107  60.30118  3      169
+siesta:     38.07044  -3.31647  56.91479  2      170
+siesta:     37.16904  -2.01634  55.61466  1      171
+siesta:     38.86601  -2.19775  58.43602  1      172
+siesta:     40.34567  -4.54668  55.53340  2      173
+siesta:     39.53687  -5.36304  53.23361  3      174
+siesta:     41.97272  -2.62483  55.01751  3      175
+siesta:     41.88580  -6.72932  56.74661  2      176
+siesta:     42.34500  -6.10193  58.63445  1      177
+siesta:     40.59889  -8.32425  56.96960  1      178
+siesta:     44.29898  -7.78756  55.47293  2      179
+siesta:     45.62935  -9.03289  57.30219  3      180
+siesta:     43.57143  -9.64328  53.85344  3      181
+siesta:     46.06398  -5.98665  54.01406  2      182
+siesta:     45.11345  -5.45753  52.26985  1      183
+siesta:     46.32854  -4.31425  55.18758  1      184
+siesta:     48.74739  -6.78790  53.23739  2      185
+siesta:     50.05886  -7.63639  55.27640  3      186
+siesta:     48.56220  -8.88739  51.75584  3      187
+siesta:     50.44437  -4.94919  51.74450  2      188
+siesta:     51.94292  -6.06224  50.87523  1      189
+siesta:     49.28597  -4.18197  50.22138  1      190
+siesta:     51.75206  -2.67585  53.07676  2      191
+siesta:     50.60878  -2.31681  55.31042  3      192
+siesta:     54.13123  -3.39773  53.72116  3      193
+siesta:     51.96182  -0.07559  51.78230  2      194
+siesta:     50.11934   0.79180  51.95993  1      195
+siesta:     53.30920   1.01667  52.90668  1      196
+siesta:     52.78952   0.16441  48.98550  2      197
+siesta:     54.23894  -1.84248  48.34110  3      198
+siesta:     50.66547  -0.12283  47.53419  3      199
+siesta:     54.19170   2.58704  48.13701  2      200
+siesta:     52.89535   4.16118  48.27874  1      201
+siesta:     55.68269   2.91018  49.51651  1      202
+siesta:     55.47293   2.73632  45.52730  2      203
+siesta:     56.56330   5.05124  45.41203  3      204
+siesta:     57.48738   1.09604  45.45738  3      205
+siesta:     53.93658   2.46798  43.07065  2      206
+siesta:     52.02418   1.86516  43.55065  1      207
+siesta:     53.78352   4.34448  42.22784  1      208
+siesta:     54.89279   0.75778  40.92959  2      209
+siesta:     53.30353   1.09226  38.94160  3      210
+siesta:     57.10944   1.76878  40.11890  3      211
+siesta:     55.30097  -2.09949  41.36234  2      212
+siesta:     57.28140  -2.37350  41.79131  1      213
+siesta:     54.20871  -2.67774  43.00829  1      214
+siesta:     54.67169  -4.01189  39.24207  2      215
+siesta:     52.13001  -4.45787  39.31010  3      216
+siesta:     55.10633  -2.86294  36.97440  3      217
+siesta:     56.03040  -6.58003  39.06632  2      218
+siesta:     54.90790  -7.75544  37.79643  1      219
+siesta:     57.86722  -6.22854  38.16870  1      220
+siesta:     56.58598  -8.16929  41.44927  2      221
+siesta:     58.01084 -10.17996  40.67637  3      222
+siesta:     58.16390  -6.76522  42.96294  3      223
+siesta:     54.33910  -9.14061  43.06688  2      224
+siesta:     52.60622  -8.11638  42.51130  1      225
+siesta:     54.04430 -11.11726  42.56610  1      226
+siesta:     54.43358  -9.01400  45.96572  2      227
+siesta:     54.39390  -6.54412  46.67058  3      228
+siesta:     52.17914  -9.89650  46.84444  3      229
+siesta:     56.64645 -10.24799  47.39057  2      230
+siesta:     57.96548 -10.86593  45.96005  1      231
+siesta:     57.57998  -8.78723  48.46583  1      232
+siesta:     56.16457 -12.52133  49.14424  2      233
+siesta:     55.06853 -14.36759  47.68726  3      234
+siesta:     58.46626 -13.48509  49.75084  3      235
+siesta:     54.61689 -12.19819  51.61411  2      236
+siesta:     55.30853 -10.51255  52.58165  1      237
+siesta:     52.65346 -11.84481  51.06042  1      238
+siesta:     54.56208 -14.37326  53.58321  2      239
+siesta:     54.35988 -16.60881  52.29441  3      240
+siesta:     56.82598 -14.46397  54.80775  3      241
+siesta:     52.45504 -14.47153  55.60710  2      242
+siesta:     50.66925 -13.96697  54.70381  1      243
+siesta:     52.26796 -16.44440  56.16835  1      244
+siesta:     52.68559 -12.94085  58.09587  2      245
+siesta:     54.12556 -14.33358  59.70214  3      246
+siesta:     54.10288 -10.84514  57.68013  3      247
+siesta:     50.28752 -12.11315  59.55285  2      248
+siesta:     50.07587 -10.07035  59.37144  1      249
+siesta:     48.69448 -12.98053  58.59476  1      250
+siesta:     49.98895 -12.72164  62.37422  2      251
+siesta:     47.67025 -11.88449  63.07152  3      252
+siesta:     49.86233 -15.27655  62.62933  3      253
+siesta:     51.90324 -11.79756  64.38110  2      254
+siesta:     51.27396 -12.61015  66.15745  1      255
+siesta:     53.71171 -12.68196  63.96537  1      256
+siesta:     52.39079  -8.99321  64.86299  2      257
+siesta:     50.24406  -7.70631  64.30174  3      258
+siesta:     52.61000  -8.74377  67.40845  3      259
+siesta:     54.68303  -7.61749  63.65923  2      260
+siesta:     55.80741  -6.92207  65.23148  1      261
+siesta:     55.80363  -9.02723  62.66712  1      262
+siesta:     54.30508  -5.40084  61.80730  2      263
+siesta:     52.46449  -6.09626  60.15757  3      264
+siesta:     53.25817  -3.42796  63.11310  3      265
+siesta:     56.54441  -4.43708  60.23504  2      266
+siesta:     56.93180  -5.82414  58.78751  1      267
+siesta:     55.90757  -2.71932  59.29018  1      268
+siesta:     59.08987  -3.83993  61.53329  2      269
+siesta:     58.59098  -2.80813  63.83308  3      270
+siesta:     60.21237  -6.03957  62.12855  3      271
+siesta:     61.11566  -2.19019  60.28418  2      272
+siesta:     62.64634  -1.98799  61.67691  1      273
+siesta:     61.90367  -3.24277  58.67980  1      274
+siesta:     60.46937   0.48188  59.36199  2      275
+siesta:     60.11032   0.34015  56.81086  3      276
+siesta:     58.15445   1.11116  60.27284  3      277
+siesta:     62.21737   2.76656  59.86844  2      278
+siesta:     63.97481   2.43964  58.80452  1      279
+siesta:     61.29140   4.38606  59.00105  1      280
+siesta:     62.98838   3.58859  62.60854  2      281
+siesta:     65.14644   2.35838  63.26428  3      282
+siesta:     63.72159   6.04713  62.49894  3      283
+siesta:     61.16668   3.29568  64.87810  2      284
+siesta:     60.79629   1.28879  65.10298  1      285
+siesta:     62.21359   3.94953  66.51083  1      286
+siesta:     58.58720   4.70164  64.91779  2      287
+siesta:     58.87633   6.88428  66.23871  3      288
+siesta:     58.04107   5.50666  62.54618  3      289
+siesta:     56.27607   3.28246  65.99304  2      290
+siesta:     54.63578   4.10827  65.08219  1      291
+siesta:     56.38945   1.31525  65.38455  1      292
+siesta:     55.76017   3.33726  68.85598  2      293
+siesta:     57.99572   3.68119  70.06729  3      294
+siesta:     54.41658   5.47643  69.37565  3      295
+siesta:     54.38634   1.12817  70.13343  2      296
+siesta:     54.14634   1.65729  72.11954  1      297
+siesta:     52.49472   1.06014  69.29439  1      298
+siesta:     55.50128  -1.55902  70.07296  2      299
+siesta:     54.90601  -2.59837  67.81096  3      300
+siesta:     58.06186  -1.39273  70.08997  3      301
+siesta:     54.78696  -3.56969  72.07796  2      302
+siesta:     55.46537  -5.38005  71.35798  1      303
+siesta:     55.88300  -3.13128  73.78061  1      304
+siesta:     52.01662  -3.94386  72.92834  2      305
+siesta:     51.50640  -2.05980  74.58752  3      306
+siesta:     50.46705  -3.46009  70.89877  3      307
+siesta:     51.14735  -6.45909  74.11887  2      308
+siesta:     49.15180  -6.66318  73.63888  1      309
+siesta:     52.17725  -7.99165  73.20613  1      310
+siesta:     51.46104  -6.85026  76.99881  2      311
+siesta:     51.39679  -9.38438  77.42778  3      312
+siesta:     53.85344  -6.16051  77.60919  3      313
+siesta:     49.64501  -5.62950  78.90366  2      314
+siesta:     49.65068  -6.85026  80.56662  1      315
+siesta:     50.45004  -3.84748  79.44979  1      316
+siesta:     46.82932  -5.09659  78.25170  2      317
+siesta:     45.88824  -3.81725  80.24725  3      318
+siesta:     46.75373  -3.39962  76.30717  3      319
+siesta:     45.04920  -7.32269  77.63565  2      320
+siesta:     44.01174  -6.81813  75.95568  1      321
+siesta:     46.22650  -8.91006  77.18211  1      322
+siesta:     43.07065  -8.16173  79.61041  2      323
+siesta:     42.29776 -10.50877  78.91877  3      324
+siesta:     44.28575  -8.49432  81.83840  3      325
+siesta:     40.72361  -6.51389  80.20568  2      326
+siesta:     40.16803  -6.85404  82.16910  1      327
+siesta:     41.31699  -4.53345  80.06773  1      328
+siesta:     38.26319  -6.79546  78.65232  2      329
+siesta:     37.58667  -9.28045  78.76760  3      330
+siesta:     36.38291  -5.56714  79.92789  3      331
+siesta:     38.07989  -5.93185  75.85553  2      332
+siesta:     39.20427  -7.25466  74.75382  1      333
+siesta:     36.10701  -6.20775  75.28672  1      334
+siesta:     38.82444  -3.23710  75.04483  2      335
+siesta:     41.37557  -3.06892  75.36798  3      336
+siesta:     38.51263  -3.08781  72.45780  3      337
+siesta:     37.71895  -0.81069  76.23347  2      338
+siesta:     35.80843  -1.29824  76.87031  1      339
+siesta:     38.82822  -0.40440  77.91155  1      340
+siesta:     37.53376   1.72721  74.76704  2      341
+siesta:     36.33567   1.33982  72.52583  3      342
+siesta:     35.78765   3.10482  76.08796  3      343
+siesta:     39.85623   3.45631  74.32107  2      344
+siesta:     39.11357   5.38005  74.12643  1      345
+siesta:     40.97684   3.39962  76.03883  1      346
+siesta:     41.68360   3.04435  72.08552  2      347
+siesta:     42.57177   0.64062  72.21969  3      348
+siesta:     40.36646   3.07648  69.89911  3      349
+siesta:     43.89836   4.88305  71.70191  2      350
+siesta:     43.57521   5.89028  69.93879  1      351
+siesta:     43.82844   6.27011  73.21936  1      352
+siesta:     46.66869   3.89851  71.54128  2      353
+siesta:     46.80665   2.34326  69.51738  3      354
+siesta:     48.11812   5.86760  70.81940  3      355
+siesta:     47.91969   2.60971  73.84297  2      356
+siesta:     46.64035   1.14706  74.50626  1      357
+siesta:     49.60911   1.70831  73.14566  1      358
+siesta:     48.80598   4.15551  76.17111  2      359
+siesta:     51.36278   4.35204  75.94812  3      360
+siesta:     47.94993   6.58381  75.96324  3      361
+siesta:     48.22205   3.23710  78.89232  2      362
+siesta:     48.95337   1.34360  79.07562  1      363
+siesta:     49.30864   4.47487  80.18111  1      364
+siesta:     45.46494   3.16718  79.87309  2      365
+siesta:     44.31410   5.34604  79.13231  3      366
+siesta:     44.20449   1.34360  78.56917  3      367
+siesta:     44.82999   2.82325  82.70390  2      368
+siesta:     44.24418   4.66763  83.46546  1      369
+siesta:     43.18593   1.57792  82.73980  1      370
+siesta:     46.79909   1.73666  84.60685  2      371
+siesta:     48.15969  -0.11338  83.42388  3      372
+siesta:     48.51874   3.58103  85.14542  3      373
+siesta:     45.90336   0.65762  87.14098  2      374
+siesta:     47.45860   0.95809  88.47701  1      375
+siesta:     44.33110   1.82737  87.75325  1      376
+siesta:     45.01518  -2.12027  87.36774  2      377
+siesta:     43.71694  -2.25822  89.58817  3      378
+siesta:     43.28986  -2.58137  85.55360  3      379
+siesta:     46.91058  -4.34070  87.33562  2      380
+siesta:     47.09766  -4.87361  85.34762  1      381
+siesta:     48.73984  -3.66985  87.96301  1      382
+siesta:     46.30020  -6.76711  88.85874  2      383
+siesta:     47.97450  -8.55290  88.05182  3      384
+siesta:     46.88979  -6.36082  91.32105  3      385
+siesta:     43.66970  -8.05969  88.69433  2      386
+siesta:     42.36012  -6.59515  88.12174  1      387
+siesta:     43.73584  -9.44863  87.15420  1      388
+siesta:     42.51697  -9.36360  91.03570  2      389
+siesta:     42.11823  -7.55891  92.82149  3      390
+siesta:     40.16803 -10.16484  90.35351  3      391
+siesta:     43.82277 -11.65017  92.35473  2      392
+siesta:     45.78808 -11.09648  92.70055  1      393
+siesta:     42.90814 -11.91095  94.16131  1      394
+siesta:     43.83977 -14.27311  91.08673  2      395
+siesta:     41.44171 -15.21230  91.23601  3      396
+siesta:     44.17426 -13.90461  88.58284  3      397
+siesta:     45.63123 -16.41039  91.92387  2      398
+siesta:     45.07188 -17.01510  93.81171  1      399
+siesta:     45.28541 -18.02044  90.69933  1      400
+siesta:     48.51307 -15.99654  92.05804  2      401
+siesta:     49.27841 -14.66239  90.01714  3      402
+siesta:     49.01952 -14.42240  94.02147  3      403
+siesta:     50.30075 -18.31334  92.28103  2      404
+siesta:     52.09221 -17.80123  91.35318  1      405
+siesta:     50.73728 -18.56279  94.28981  1      406
+siesta:     49.54675 -20.92495  91.23034  2      407
+siesta:     47.36034 -21.62225  92.41898  3      408
+siesta:     48.88534 -20.60558  88.76803  3      409
+siesta:     51.43081 -23.14537  91.37396  2      410
+siesta:     52.88401 -22.77121  89.96612  1      411
+siesta:     52.35488 -23.10569  93.22590  1      412
+siesta:     50.57476 -25.90060  90.93366  2      413
+siesta:     52.29630 -26.90215  89.33117  3      414
+siesta:     50.85255 -27.17049  93.13897  3      415
+siesta:     47.83655 -26.49208  89.96612  2      416
+siesta:     46.64035 -26.55822  91.66687  1      417
+siesta:     47.22994 -24.85369  88.86252  1      418
+siesta:     47.17892 -28.82211  88.34473  2      419
+siesta:     46.61578 -28.00008  85.98446  3      420
+siesta:     49.30108 -30.27531  87.99135  3      421
+siesta:     44.96983 -30.59279  89.08173  2      422
+siesta:     43.39758 -29.44006  89.73746  1      423
+siesta:     44.31221 -31.50931  87.34696  1      424
+siesta:     45.39880 -32.71117  91.05082  2      425
+siesta:     47.35656 -32.03465  92.55504  3      426
+siesta:     43.36167 -32.60157  92.62307  3      427
+siesta:     45.68793 -35.50797  90.25525  2      428
+siesta:     44.11378 -36.49063  91.17743  1      429
+siesta:     45.40447 -35.63269  88.21623  1      430
+siesta:     48.08221 -37.04054  90.86941  2      431
+siesta:     48.33732 -37.18794  93.40542  3      432
+siesta:     47.57765 -39.46695  90.21556  3      433
+siesta:     50.66358 -36.36590  89.65809  2      434
+siesta:     51.30042 -38.04209  88.63008  1      435
+siesta:     50.28752 -34.89192  88.28426  1      436
+siesta:     52.91802 -35.48529  91.31727  2      437
+siesta:     52.06198 -33.61068  92.81394  3      438
+siesta:     53.48683 -37.36179  92.96133  3      439
+siesta:     55.41624 -34.62169  90.08517  2      440
+siesta:     56.49905 -36.30732  89.61652  1      441
+siesta:     54.94759 -33.70895  88.28993  1      442
+siesta:     57.20392 -32.80566  91.53270  2      443
+siesta:     56.35355 -30.40004  91.17743  3      444
+siesta:     56.87511 -33.19494  94.03092  3      445
+siesta:     60.09142 -32.81889  91.04137  2      446
+siesta:     60.78873 -34.65570  91.70089  1      447
+siesta:     60.39378 -32.74897  88.99291  1      448
+siesta:     61.80541 -30.76286  92.22245  2      449
+siesta:     61.93013 -31.21640  94.76602  3      450
+siesta:     64.19213 -31.23530  91.38908  3      451
+siesta:     61.15912 -27.94717  91.83128  2      452
+siesta:     60.21048 -27.83190  90.02659  1      453
+siesta:     59.78340 -27.47096  93.28070  1      454
+siesta:     63.22459 -25.88359  91.87852  2      455
+siesta:     64.81196 -26.40893  93.80037  3      456
+siesta:     64.67212 -26.11603  89.77337  3      457
+siesta:     62.52161 -23.03577  92.06749  2      458
+siesta:     62.91657 -22.42917  94.00824  1      459
+siesta:     63.82742 -22.01721  90.85051  1      460
+siesta:     59.83631 -22.08713  91.42499  2      461
+siesta:     59.13333 -23.22852  89.21212  3      462
+siesta:     58.18658 -23.05278  93.12952  3      463
+siesta:     59.17302 -19.25254  91.23979  2      464
+siesta:     57.13022 -19.12026  91.30593  1      465
+siesta:     59.92324 -18.33980  92.93110  1      466
+siesta:     60.08765 -17.63871  88.96267  2      467
+siesta:     61.06841 -15.48064  89.95289  3      468
+siesta:     62.08887 -18.77255  87.84773  3      469
+siesta:     58.22060 -16.83558  86.90287  2      470
+siesta:     56.76173 -15.67528  87.80238  1      471
+siesta:     59.27317 -15.60347  85.62541  1      472
+siesta:     56.85621 -18.85758  85.28715  2      473
+siesta:     58.65901 -20.46952  84.31205  3      474
+siesta:     55.45592 -20.32779  86.84618  3      475
+siesta:     55.16680 -18.05634  83.07428  2      476
+siesta:     56.38000 -17.92406  81.40943  1      477
+siesta:     53.83076 -19.59269  82.75492  1      478
+siesta:     53.62856 -15.57324  83.22546  2      479
+siesta:     52.52307 -15.45797  85.54227  3      480
+siesta:     55.30097 -13.63627  83.12909  3      481
+siesta:     51.57065 -14.96286  81.22991  2      482
+siesta:     52.51551 -13.97831  79.68978  1      483
+siesta:     50.90168 -16.76944  80.47213  1      484
+siesta:     49.26140 -13.37360  81.96123  2      485
+siesta:     50.07209 -11.23065  83.15932  3      486
+siesta:     48.27307 -12.52889  79.75592  3      487
+siesta:     47.05798 -14.47720  83.53916  2      488
+siesta:     47.71371 -14.81735  85.48557  1      489
+siesta:     45.60289 -13.00132  83.61663  1      490
+siesta:     45.72572 -16.95841  82.71335  2      491
+siesta:     45.61990 -17.02077  80.15277  3      492
+siesta:     47.27152 -18.93317  83.30672  3      493
+siesta:     43.08388 -17.60470  83.72435  2      494
+siesta:     42.70216 -19.53222  83.16310  1      495
+siesta:     43.20105 -17.53289  85.78037  1      496
+siesta:     40.76330 -16.00977  82.98925  2      497
+siesta:     38.75830 -17.01132  84.24591  3      498
+siesta:     41.01274 -13.68540  84.08151  3      499
+siesta:     39.98284 -15.64883  80.18489  2      500
+siesta:     38.65058 -14.09169  80.16221  1      501
+siesta:     41.63257 -15.05545  79.16255  1      502
+siesta:     38.76775 -17.82768  78.67689  2      503
+siesta:     39.62190 -20.09158  79.58396  3      504
+siesta:     36.23362 -17.83902  79.17767  3      505
+siesta:     39.10412 -17.91650  75.77427  2      506
+siesta:     41.08455 -18.38893  75.43601  1      507
+siesta:     37.94761 -19.49064  75.07696  1      508
+siesta:     38.45783 -15.58647  74.13210  2      509
+siesta:     36.86290 -16.35181  72.28772  3      510
+siesta:     37.02542 -14.01610  75.57018  3      511
+siesta:     40.52708 -13.96886  72.91133  2      512
+siesta:     39.56332 -12.40417  71.92112  1      513
+siesta:     41.60045 -13.14305  74.44579  1      514
+siesta:     42.45082 -15.12159  71.01405  2      515
+siesta:     44.19693 -16.36315  72.42000  3      516
+siesta:     41.22817 -16.99431  69.69124  3      517
+siesta:     43.84166 -13.47564  69.04684  2      518
+siesta:     44.84133 -14.78144  67.81285  1      519
+siesta:     42.39224 -12.54023  67.92812  1      520
+siesta:     45.79753 -11.50277  69.87643  2      521
+siesta:     45.66903 -11.20608  72.39922  3      522
+siesta:     48.11056 -12.57991  69.48715  3      523
+siesta:     45.86934  -8.86660  68.67456  2      524
+siesta:     47.47372  -7.85370  69.49849  1      525
+siesta:     46.38146  -9.13872  66.68090  1      526
+siesta:     43.52797  -7.12994  68.73882  2      527
+siesta:     41.92737  -7.97087  66.91145  3      528
+siesta:     42.32043  -7.65528  70.91767  3      529
+siesta:     43.80198  -4.22732  68.51961  2      530
+siesta:     42.23162  -3.42419  69.56841  1      531
+siesta:     45.50651  -3.72276  69.55518  1      532
+siesta:     43.91536  -2.89128  65.94013  2      533
+siesta:     41.75729  -3.50166  64.66456  3      534
+siesta:     43.74151  -0.36661  66.40500  3      535
+siesta:     46.17926  -3.28057  64.16379  2      536
+siesta:     47.89324  -2.64184  65.13700  1      537
+siesta:     46.33799  -5.31580  63.85954  1      538
+siesta:     46.22839  -2.06736  61.52573  2      539
+siesta:     46.17359  -4.04213  59.89300  3      540
+siesta:     44.00607  -0.85038  61.08164  3      541
+siesta:     48.32599  -0.30425  60.60921  2      542
+siesta:     50.03241  -1.44753  60.43347  1      543
+siesta:     47.81576   0.30047  58.70059  1      544
+siesta:     49.06487   2.06547  62.09454  2      545
+siesta:     50.34232   1.39084  64.20914  3      546
+siesta:     50.82042   3.29190  60.63000  3      547
+siesta:     46.99184   4.03079  62.77862  2      548
+siesta:     45.85611   4.29913  61.08731  1      549
+siesta:     45.79753   3.19175  64.20536  1      550
+siesta:     47.66458   6.72365  63.75561  2      551
+siesta:     46.87090   8.38661  61.99627  3      552
+siesta:     46.13390   7.17907  65.78328  3      553
+siesta:     50.39524   7.43985  64.50583  2      554
+siesta:     50.93192   6.15106  66.02139  1      555
+siesta:     51.58387   7.04301  62.86932  1      556
+siesta:     51.05853  10.11571  65.39589  2      557
+siesta:     50.06642  10.39161  67.75238  3      558
+siesta:     53.59454  10.15539  65.68691  3      559
+siesta:     50.31020  12.45519  63.83686  2      560
+siesta:     50.59366  11.97142  61.85454  1      561
+siesta:     48.29197  12.77077  64.15245  1      562
+siesta:     51.61600  15.05356  64.22615  2      563
+siesta:     49.74328  16.76377  64.62488  3      564
+siesta:     52.91613  15.07057  66.45414  3      565
+siesta:     53.29408  16.24787  62.14178  2      566
+siesta:     52.23205  16.26110  60.37488  1      567
+siesta:     53.58887  18.25098  62.68413  1      568
+siesta:     55.92647  15.17262  61.54840  2      569
+siesta:     55.73938  12.61582  61.32542  3      570
+siesta:     56.47827  15.96252  59.16546  3      571
+siesta:     58.22626  15.80946  63.22648  2      572
+siesta:     59.52073  16.96219  62.10398  1      573
+siesta:     57.54785  16.96030  64.78929  1      574
+siesta:     59.82308  13.67406  64.41134  2      575
+siesta:     61.36888  14.76633  66.14044  3      576
+siesta:     58.26595  12.17740  65.81541  3      577
+siesta:     61.44636  11.91284  62.75405  2      578
+siesta:     61.12133   9.98154  63.44947  1      579
+siesta:     60.73393  11.93551  60.81708  1      580
+siesta:     64.34142  12.25488  62.58020  2      581
+siesta:     65.13133  10.89617  60.52795  3      582
+siesta:     64.76472  14.67562  61.86588  3      583
+siesta:     66.05729  11.67284  64.87054  2      584
+siesta:     66.38611  13.47375  65.82864  1      585
+siesta:     65.00283  10.48609  66.18201  1      586
+siesta:     68.71425  10.48231  64.54362  2      587
+siesta:     69.75549  11.40072  62.35910  3      588
+siesta:     70.15611  11.41206  66.43902  3      589
+siesta:     69.04684   7.60237  64.48693  2      590
+siesta:     67.85442   6.81813  65.96092  1      591
+siesta:     68.34764   6.93719  62.67090  1      592
+siesta:     71.72836   6.48932  64.84598  2      593
+siesta:     71.71891   4.06291  63.99371  3      594
+siesta:     73.30629   7.70820  63.20947  3      595
+siesta:     73.01527   6.46098  67.45569  2      596
+siesta:     74.97869   5.85437  67.14389  1      597
+siesta:     73.10786   8.40173  68.12087  1      598
+siesta:     71.95135   4.93408  69.66100  2      599
+siesta:     73.63321   5.07203  71.58663  3      600
+siesta:     69.91989   6.23799  70.55862  3      601
+siesta:     71.26160   2.10327  69.38510  2      602
+siesta:     72.07796   1.36627  67.61632  1      603
+siesta:     72.24615   1.13573  70.88554  1      604
+siesta:     68.44591   1.23777  69.48526  2      605
+siesta:     67.76183   1.12817  71.96080  3      606
+siesta:     66.95869   3.06703  68.46480  3      607
+siesta:     67.61821  -1.25856  68.26449  2      608
+siesta:     67.64655  -0.98644  66.22359  1      609
+siesta:     69.04873  -2.65129  68.67267  1      610
+siesta:     65.05574  -2.54168  68.86732  2      611
+siesta:     64.89133  -2.96687  71.40144  3      612
+siesta:     63.21136  -0.81447  68.44213  3      613
+siesta:     64.24882  -4.97187  67.41412  2      614
+siesta:     62.19469  -5.17407  67.60309  1      615
+siesta:     64.66834  -4.62038  65.41290  1      616
+siesta:     65.42423  -7.57969  68.09253  2      617
+siesta:     67.98670  -7.25655  68.28906  3      618
+siesta:     64.67590  -8.24488  70.47358  3      619
+siesta:     65.08030  -9.89650  66.35209  2      620
+siesta:     65.75872  -9.35604  64.49827  1      621
+siesta:     66.33319 -11.36671  67.06641  1      622
+siesta:     62.43469 -11.13616  66.05918  2      623
+siesta:     62.33264 -13.20919  67.57852  3      624
+siesta:     60.66212  -9.50722  66.97192  3      625
+siesta:     61.45581 -11.99221  63.43624  2      626
+siesta:     59.40545 -12.23976  63.63466  1      627
+siesta:     61.74494 -10.42373  62.15123  1      628
+siesta:     62.57075 -14.36003  62.12477  2      629
+siesta:     62.06808 -14.13894  59.61710  3      630
+siesta:     65.13889 -14.22208  62.24760  3      631
+siesta:     61.80919 -17.04912  62.92791  2      632
+siesta:     62.94680 -18.36248  61.81675  1      633
+siesta:     62.38744 -17.28533  64.88188  1      634
+siesta:     59.03885 -17.94296  62.70492  2      635
+siesta:     57.54785 -16.25921  63.92757  3      636
+siesta:     58.33209 -17.73887  60.25394  3      637
+siesta:     58.32642 -20.66416  63.56474  2      638
+siesta:     58.65712 -21.88682  61.95470  1      639
+siesta:     59.66813 -21.23108  65.02928  1      640
+siesta:     55.63923 -21.27266  64.53795  2      641
+siesta:     55.48616 -23.84646  64.64756  3      642
+siesta:     55.47104 -20.50354  66.99082  3      643
+siesta:     53.20904 -20.30889  63.27184  2      644
+siesta:     52.62133 -18.64594  64.32063  1      645
+siesta:     53.66635 -19.60592  61.38022  1      646
+siesta:     50.88846 -22.04555  62.99027  2      647
+siesta:     49.07810 -20.68117  61.76194  3      648
+siesta:     51.49695 -23.87670  61.24794  3      649
+siesta:     49.61667 -23.40049  65.24849  2      650
+siesta:     47.98206 -24.42283  64.48315  1      651
+siesta:     50.95460 -24.79889  65.96470  1      652
+siesta:     48.62834 -21.89627  67.54640  2      653
+siesta:     50.47083 -21.98130  69.33219  3      654
+siesta:     48.41669 -19.37915  66.91145  3      655
+siesta:     46.11500 -22.70318  68.80307  2      656
+siesta:     45.36667 -21.00809  69.70636  1      657
+siesta:     44.83566 -23.20963  67.23648  1      658
+siesta:     46.08855 -24.86881  70.75704  2      659
+siesta:     43.81521 -26.07256  70.58886  3      660
+siesta:     47.75907 -26.63948  69.95391  3      661
+siesta:     46.72917 -24.29433  73.56329  2      662
+siesta:     47.62112 -25.94973  74.34563  1      663
+siesta:     48.17292 -22.79389  73.53305  1      664
+siesta:     44.65614 -23.41750  75.43790  2      665
+siesta:     45.51596 -21.25754  76.55850  3      666
+siesta:     42.59066 -22.64460  74.10753  3      667
+siesta:     43.70560 -25.22029  77.51093  2      668
+siesta:     41.70816 -24.79322  77.78872  1      669
+siesta:     43.76985 -27.14593  76.74559  1      670
+siesta:     44.90180 -25.29399  80.16788  2      671
+siesta:     43.61490 -23.59702  81.62864  3      672
+siesta:     44.22717 -27.57112  81.19023  3      673
+siesta:     47.74395 -24.86314  80.71401  2      674
+siesta:     48.25418 -22.99420  79.96001  1      675
+siesta:     47.93859 -24.74786  82.76626  1      676
+siesta:     49.74517 -26.76042  79.75592  2      677
+siesta:     48.51307 -28.73897  78.64665  3      678
+siesta:     50.97916 -25.66249  77.76415  3      679
+siesta:     51.71427 -27.97930  81.53416  2      680
+siesta:     50.65791 -29.07156  82.94956  1      681
+siesta:     52.77440 -29.36258  80.40977  1      682
+siesta:     53.68714 -26.36169  82.94767  2      683
+siesta:     54.99294 -25.07290  81.15054  3      684
+siesta:     52.42858 -24.55511  84.24402  3      685
+siesta:     55.55986 -27.58056  84.81472  2      686
+siesta:     56.10410 -26.11036  86.13753  1      687
+siesta:     54.48650 -28.96384  85.91643  1      688
+siesta:     58.03351 -28.88259  83.87553  2      689
+siesta:     58.27162 -31.05010  85.24558  3      690
+siesta:     57.61399 -29.70084  81.50014  3      691
+siesta:     60.59598 -27.47663  83.95868  2      692
+siesta:     60.69614 -26.30500  82.25225  1      693
+siesta:     60.52606 -26.17083  85.56683  1      694
+siesta:     63.13766 -28.92983  84.03804  2      695
+siesta:     63.38522 -29.86713  86.42855  3      696
+siesta:     62.84665 -31.01231  82.54705  3      697
+siesta:     65.68124 -27.65993  83.35963  2      698
+siesta:     65.29006 -25.99130  82.23524  1      699
+siesta:     66.47870 -27.00609  85.14164  1      700
+siesta:     67.76561 -29.15849  81.96501  2      701
+siesta:     66.84342 -30.14681  79.75970  3      702
+siesta:     69.55329 -27.50686  81.14676  3      703
+siesta:     69.11109 -31.37136  83.32184  2      704
+siesta:     67.61065 -32.45606  84.23080  1      705
+siesta:     69.93879 -32.57889  81.89509  1      706
+siesta:     71.21058 -30.80822  85.28526  2      707
+siesta:     73.48392 -31.20317  84.14576  3      708
+siesta:     71.15767 -28.29677  85.88431  3      709
+siesta:     71.27672 -32.28220  87.77403  2      710
+siesta:     69.34542 -32.90581  88.20300  1      711
+siesta:     72.43890 -33.96028  87.44900  1      712
+siesta:     72.24048 -31.01987  90.23635  2      713
+siesta:     72.86787 -32.93605  91.79915  3      714
+siesta:     74.50437 -29.95406  89.71100  3      715
+siesta:     70.58319 -29.15849  91.75002  2      716
+siesta:     69.11109 -28.45173  90.50091  1      717
+siesta:     69.70447 -30.25642  93.22779  1      718
+siesta:     71.85497 -26.84357  93.03692  2      719
+siesta:     69.95580 -25.67194  94.32761  3      720
+siesta:     73.44235 -27.73363  94.87185  3      721
+siesta:     73.31573 -24.83290  91.48546  2      722
+siesta:     75.28105 -24.94062  92.09584  1      723
+siesta:     73.22503 -25.43194  89.51825  1      724
+siesta:     72.54284 -22.00965  91.52136  2      725
+siesta:     74.37209 -20.72463  90.27981  3      726
+siesta:     70.46414 -21.78099  90.00391  3      727
+siesta:     71.94568 -20.48653  93.93454  2      728
+siesta:     71.96836 -18.49287  93.40164  1      729
+siesta:     70.03328 -20.93439  94.51847  1      730
+siesta:     73.67100 -20.67739  96.30237  2      731
+siesta:     75.87442 -21.74131  95.57294  3      732
+siesta:     74.32296 -18.28689  97.00724  3      733
+siesta:     72.74693 -22.12492  98.68343  2      734
+siesta:     71.32774 -20.95707  99.61506  1      735
+siesta:     71.81340 -23.84268  98.07305  1      736
+siesta:     74.58374 -23.01876 100.76024  2      737
+siesta:     73.17022 -24.37559 102.43642  3      738
+siesta:     76.16355 -24.77054  99.71711  3      739
+siesta:     76.23536 -21.07801 102.25312  2      740
+siesta:     77.31818 -22.16461 103.61372  1      741
+siesta:     77.56006 -20.23142 100.93598  1      742
+siesta:     74.99192 -18.91806 103.76679  2      743
+siesta:     72.48614 -19.47364 103.96899  3      744
+siesta:     75.93301 -19.04467 106.15730  3      745
+siesta:     75.24892 -16.16094 102.85405  2      746
+siesta:     76.73803 -15.25388 103.96521  1      747
+siesta:     75.86875 -16.18929 100.87362  1      748
+siesta:     72.94157 -14.39216 102.93909  2      749
+siesta:     73.65777 -12.14338 101.92809  3      750
+siesta:     71.17467 -15.27277 101.29692  3      751
+siesta:     71.61120 -13.83847 105.46377  2      752
+siesta:     69.80651 -14.85136 105.39385  1      753
+siesta:     72.79606 -14.69263 106.92075  1      754
+siesta:     71.01594 -11.07002 106.20076  2      755
+siesta:     70.29028 -11.10404 108.68386  3      756
+siesta:     73.24959  -9.78690 106.20454  3      757
+siesta:     69.09975  -9.50155 104.67386  2      758
+siesta:     69.65155  -9.63572 102.68587  1      759
+siesta:     67.22136 -10.35003 104.84961  1      760
+siesta:     68.77094  -6.64806 105.27102  2      761
+siesta:     66.27461  -6.19830 105.55825  3      762
+siesta:     69.75927  -6.18886 107.62184  3      763
+siesta:     69.90289  -4.69975 103.42097  2      764
+siesta:     71.94190  -4.89628 103.55703  1      765
+siesta:     69.35487  -5.24777 101.49534  1      766
+siesta:     69.26983  -1.85193 103.70254  2      767
+siesta:     67.39900  -1.30391 102.03391  3      768
+siesta:     68.20780  -1.50800 106.02880  3      769
+siesta:     71.43546   0.11149 103.43609  2      770
+siesta:     72.28205   0.38550 105.27857  1      771
+siesta:     72.86409  -0.76912 102.22855  1      772
+siesta:     70.94224   2.77601 102.40241  2      773
+siesta:     69.83675   2.56247 100.10072  3      774
+siesta:     69.11487   3.88150 103.85561  3      775
+siesta:     73.18912   4.63550 102.19832  2      776
+siesta:     72.37843   6.51956 102.15108  1      777
+siesta:     74.22280   4.46353 103.97466  1      778
+siesta:     75.11853   4.46165 100.01191  2      779
+siesta:     77.18778   5.80713 100.74701  3      780
+siesta:     75.93678   2.04091  99.91931  3      781
+siesta:     74.40044   5.29690  97.32471  2      782
+siesta:     72.43323   4.74510  97.01858  1      783
+siesta:     74.48358   7.35482  97.32660  1      784
+siesta:     76.01237   4.41818  95.02870  2      785
+siesta:     75.40388   5.93374  93.02936  3      786
+siesta:     78.49548   4.97187  95.52758  3      787
+siesta:     75.93301   1.66863  94.02714  2      788
+siesta:     77.60919   1.44942  92.83661  1      789
+siesta:     76.21646   0.44220  95.66553  1      790
+siesta:     73.68423   0.70865  92.48134  2      791
+siesta:     71.77561   2.43586  92.64386  3      792
+siesta:     74.37209   0.78802  90.00580  3      793
+siesta:     72.55039  -1.92752  92.98212  2      794
+siesta:     71.56585  -2.50767  91.24735  1      795
+siesta:     74.13965  -3.22009  93.28637  1      796
+siesta:     70.65500  -2.35460  95.14775  2      797
+siesta:     70.11832  -4.85471  95.29893  3      798
+siesta:     71.87009  -1.80469  97.36818  3      799
+siesta:     68.11332  -0.92408  95.21389  2      800
+siesta:     67.19113  -1.61194  96.91275  1      801
+siesta:     68.50449   1.07336  95.54459  1      802
+siesta:     66.17824  -1.06770  93.04070  2      803
+siesta:     67.34609  -0.38361  90.86752  3      804
+siesta:     65.60565  -3.54135  92.61551  3      805
+siesta:     63.70458   0.47999  93.15031  2      806
+siesta:     64.29607   2.48310  93.01047  1      807
+siesta:     62.65200   0.04535  91.43443  1      808
+siesta:     61.84698   0.30425  95.38396  2      809
+siesta:     63.12633   0.44409  97.58361  3      810
+siesta:     60.47504   2.47932  95.37263  3      811
+siesta:     59.91757  -1.86138  95.61451  2      812
+siesta:     58.63067  -1.39651  97.16031  1      813
+siesta:     58.80263  -1.78768  93.87407  1      814
+siesta:     60.66023  -4.65629  95.95088  2      815
+siesta:     58.55319  -5.95264  96.67465  3      816
+siesta:     61.13455  -5.62950  93.60762  3      817
+siesta:     62.82775  -5.47454  97.75179  2      818
+siesta:     64.43402  -5.94319  96.54426  1      819
+siesta:     63.33231  -3.83237  98.88185  1      820
+siesta:     62.52161  -7.67418  99.63963  2      821
+siesta:     64.53795  -7.63072 101.24590  3      822
+siesta:     60.52606  -7.16395 101.18165  3      823
+siesta:     62.24571 -10.40295  98.67398  2      824
+siesta:     61.09109 -11.39127 100.06860  1      825
+siesta:     61.16101 -10.30279  96.90708  1      826
+siesta:     64.58709 -12.08669  98.16753  2      827
+siesta:     66.60720 -10.54846  97.94643  3      828
+siesta:     65.06897 -13.50210 100.25568  3      829
+siesta:     64.57386 -13.91406  95.89419  2      830
+siesta:     63.41734 -15.50521  96.44032  1      831
+siesta:     63.62521 -12.96353  94.33706  1      832
+siesta:     67.06641 -14.98175  94.85106  2      833
+siesta:     68.28906 -16.22519  96.72945  3      834
+siesta:     66.41823 -16.90739  93.28070  3      835
+siesta:     69.03739 -13.26588  93.51313  2      836
+siesta:     70.16367 -12.42873  95.03059  1      837
+siesta:     70.26760 -14.47720  92.40764  1      838
+siesta:     68.21158 -11.10215  91.72923  2      839
+siesta:     67.11743  -9.23321  93.14464  3      840
+siesta:     70.35642 -10.02878  90.80138  3      841
+siesta:     66.44091 -11.62749  89.48235  2      842
+siesta:     67.61632 -11.65395  87.75892  1      843
+siesta:     65.69447 -13.54367  89.66565  1      844
+siesta:     64.15623  -9.87382  88.95511  2      845
+siesta:     62.66523 -11.09270  87.26381  3      846
+siesta:     62.66334  -9.82280  91.04137  3      847
+siesta:     64.53039  -7.13183  87.97057  2      848
+siesta:     62.92979  -5.98288  88.64520  1      849
+siesta:     66.24438  -6.41373  88.86252  1      850
+siesta:     64.86110  -6.63672  85.10385  2      851
+siesta:     66.62232  -8.27889  84.23080  3      852
+siesta:     62.72381  -7.38694  83.89631  3      853
+siesta:     65.61321  -3.97976  84.11552  2      854
+siesta:     67.29128  -3.37883  85.16243  1      855
+siesta:     66.16312  -4.22165  82.12942  1      856
+siesta:     63.71592  -1.74044  84.16277  2      857
+siesta:     61.83753  -2.29980  85.85218  3      858
+siesta:     64.97448   0.21354  85.24936  3      859
+siesta:     62.47626  -0.63117  81.76092  2      860
+siesta:     60.59787   0.10393  82.32973  1      861
+siesta:     63.65167   0.97888  81.21479  1      862
+siesta:     62.02273  -2.26200  79.36475  2      863
+siesta:     64.30741  -2.67585  78.23469  3      864
+siesta:     61.24605  -4.58637  80.13387  3      865
+siesta:     60.17835  -1.40218  77.29361  2      866
+siesta:     60.66212  -2.39617  75.53994  1      867
+siesta:     58.31319  -2.04846  77.89265  1      868
+siesta:     59.85521   1.41352  76.58307  2      869
+siesta:     57.66502   1.59115  75.28861  3      870
+siesta:     59.41301   2.72499  78.74114  3      871
+siesta:     61.83753   2.82136  74.95602  2      872
+siesta:     62.54240   1.47966  73.54439  1      873
+siesta:     60.76795   4.27456  73.95068  1      874
+siesta:     64.16757   4.14039  76.12765  2      875
+siesta:     63.51939   5.24399  78.34241  3      876
+siesta:     65.87588   2.35460  76.84952  3      877
+siesta:     65.69069   6.08492  74.57429  2      878
+siesta:     67.68624   5.82603  74.99192  1      879
+siesta:     65.43746   5.62950  72.55795  1      880
+siesta:     65.12377   8.93652  74.86720  2      881
+siesta:     65.92501   9.66217  77.20668  3      882
+siesta:     66.69980  10.22342  73.30062  3      883
+siesta:     62.43469   9.99666  74.48170  2      884
+siesta:     61.19880   8.97242  75.78183  1      885
+siesta:     62.51217  11.96764  75.06184  1      886
+siesta:     61.17235   9.97020  71.83986  2      887
+siesta:     62.41012  11.70308  70.38855  3      888
+siesta:     61.68635   7.71198  70.70791  3      889
+siesta:     58.33776  10.50499  71.48459  2      890
+siesta:     58.23193  12.44196  70.82696  1      891
+siesta:     57.71604   9.33903  69.91234  1      892
+siesta:     56.38189  10.20830  73.65022  2      893
+siesta:     56.50472   7.79890  74.51193  3      894
+siesta:     57.16613  11.65017  75.63632  3      895
+siesta:     53.56431  10.85270  73.16833  2      896
+siesta:     53.13912  10.26689  71.23325  1      897
+siesta:     52.47394   9.68485  74.46280  1      898
+siesta:     52.58921  13.58525  73.49337  2      899
+siesta:     52.57598  14.16350  76.01993  3      900
+siesta:     54.41280  15.13293  72.53906  3      901
+siesta:     50.06075  14.46208  72.34630  2      902
+siesta:     49.98706  16.50487  72.56362  1      903
+siesta:     50.15335  14.09169  70.33374  1      904
+siesta:     47.48317  13.45863  73.33841  2      905
+siesta:     47.93292  12.02055  75.40388  3      906
+siesta:     46.15091  15.45797  74.30028  3      907
+siesta:     45.61612  11.93174  71.65277  2      908
+siesta:     46.65736  10.31035  70.90066  1      909
+siesta:     44.19693  11.19096  72.93023  1      910
+siesta:     44.17048  13.20730  69.47581  2      911
+siesta:     45.84099  14.72664  68.23048  3      912
+siesta:     43.63001  11.35915  67.76750  3      913
+siesta:     41.75729  14.75310  69.90100  2      914
+siesta:     41.97272  15.75276  71.70002  1      915
+siesta:     41.72895  16.18362  68.42134  1      916
+siesta:     39.15514  13.44730  69.97470  2      917
+siesta:     39.32144  11.45363  71.58096  3      918
+siesta:     37.59234  15.11782  71.12932  3      919
+siesta:     37.84934  12.59692  67.51049  2      920
+siesta:     36.43771  14.03878  67.08719  1      921
+siesta:     39.25152  12.66495  66.00249  1      922
+siesta:     36.55110  10.02122  67.30640  2      923
+siesta:     35.08656   9.69808  69.39644  3      924
+siesta:     34.88436  10.18752  65.38266  3      925
+siesta:     38.09878   7.58347  66.98137  2      926
+siesta:     39.86001   7.86126  68.01127  1      927
+siesta:     37.05754   6.07925  67.93946  1      928
+siesta:     38.84712   6.62916  64.30741  2      929
+siesta:     39.56899   8.68707  62.96570  3      930
+siesta:     40.96739   5.21187  64.53984  3      931
+siesta:     36.92904   5.16462  62.64067  2      932
+siesta:     35.07333   5.28368  63.48726  1      933
+siesta:     36.85723   6.19452  60.86432  1      934
+siesta:     37.37880   2.33948  61.95281  2      935
+siesta:     35.58923   1.69509  60.21048  3      936
+siesta:     39.58789   2.16563  60.61110  3      937
+siesta:     37.40525   0.26078  64.01261  2      938
+siesta:     37.76997  -1.50044  62.99782  1      939
+siesta:     38.98507   0.65762  65.28061  1      940
+siesta:     35.02231  -0.23433  65.68124  2      941
+siesta:     34.64814   1.87839  67.13444  3      942
+siesta:     32.94928  -0.26645  64.13922  3      943
+siesta:     34.94861  -2.55491  67.48593  2      944
+siesta:     36.80054  -3.48088  67.34042  1      945
+siesta:     34.80310  -1.81981  69.40400  1      946
+siesta:     32.93794  -4.64873  67.19302  2      947
+siesta:     30.62491  -3.55458  67.01160  3      948
+siesta:     33.31022  -5.77501  64.90267  3      949
+siesta:     32.73952  -6.72365  69.23392  2      950
+siesta:     33.05510  -5.81847  71.04995  1      951
+siesta:     30.78743  -7.40017  69.19802  1      952
+siesta:     34.50263  -9.03856  69.16589  2      953
+siesta:     36.88558  -8.24110  68.56307  3      954
+siesta:     34.74263  -9.84548  71.58852  3      955
+siesta:     33.82611 -11.38182  67.56152  2      956
+siesta:     33.32344 -12.89739  68.85598  1      957
+siesta:     32.17260 -10.90750  66.45036  1      958
+siesta:     35.73474 -12.52889  65.66423  2      959
+siesta:     37.69816 -13.47753  67.00216  3      960
+siesta:     34.53287 -14.56790  64.67023  3      961
+siesta:     36.84212 -10.95286  63.47782  2      962
+siesta:     35.21884 -10.17618  62.42146  1      963
+siesta:     37.87391  -9.37305  64.31496  1      964
+siesta:     38.65625 -12.09047  61.50683  2      965
+siesta:     37.50163 -11.99032  59.21459  3      966
+siesta:     40.62913 -10.45019  61.33109  3      967
+siesta:     39.80710 -14.73231  61.77139  2      968
+siesta:     41.37368 -14.59814  63.09609  1      969
+siesta:     38.40870 -15.99654  62.62933  1      970
+siesta:     40.79542 -16.14961  59.40356  2      971
+siesta:     42.23729 -18.09036  60.24449  3      972
+siesta:     38.76019 -17.30234  58.28485  3      973
+siesta:     42.37146 -14.86270  57.33053  2      974
+siesta:     41.38313 -13.12982  56.79952  1      975
+siesta:     44.15347 -14.32224  58.19792  1      976
+siesta:     42.98751 -16.19307  54.83420  2      977
+siesta:     40.93526 -15.99843  53.28274  3      978
+siesta:     44.78842 -14.77577  53.65124  3      979
+siesta:     43.88513 -18.97475  54.71326  2      980
+siesta:     42.57177 -20.08780  55.85088  1      981
+siesta:     43.61490 -19.52655  52.75551  1      982
+siesta:     46.60066 -19.70796  55.45592  2      983
+siesta:     48.19937 -18.80278  53.65313  3      984
+siesta:     47.27530 -18.42295  57.58187  3      985
+siesta:     47.21672 -22.50098  55.94725  2      986
+siesta:     47.38301 -22.68617  57.98249  1      987
+siesta:     45.58399 -23.58568  55.35388  1      988
+siesta:     49.55809 -23.74064  54.74539  2      989
+siesta:     49.44281 -23.32868  52.23583  3      990
+siesta:     51.58954 -22.38948  55.56364  3      991
+siesta:     50.20248 -26.58846  55.09121  2      992
+siesta:     51.84277 -26.94562  53.89501  1      993
+siesta:     50.77318 -26.84735  57.05841  1      994
+siesta:     48.20693 -28.63503  54.47516  2      995
+siesta:     46.89168 -29.02620  56.65590  3      996
+siesta:     46.44760 -27.66938  52.85944  3      997
+siesta:     49.00818 -31.23719  53.42825  2      998
+siesta:     47.28097 -32.22929  52.88590  1      999
+siesta:     50.13067 -30.87625  51.74639  1     1000
+siesta:     50.53697 -33.10046  55.07798  2     1001
+siesta:     52.89157 -32.07622  55.41246  3     1002
+siesta:     49.46171 -33.12502  57.42124  3     1003
+siesta:     50.89034 -35.87835  54.20871  2     1004
+siesta:     49.08188 -36.54165  53.49439  1     1005
+siesta:     52.20559 -35.83678  52.63078  1     1006
+siesta:     51.87111 -37.93627  56.04363  2     1007
+siesta:     50.61633 -37.68682  58.29429  3     1008
+siesta:     51.00373 -40.15103  55.09499  3     1009
+siesta:     54.72649 -38.26508  56.66157  2     1010
+siesta:     55.39923 -36.46606  57.42880  1     1011
+siesta:     54.88145 -39.68426  58.15445  1     1012
+siesta:     56.55953 -39.11357  54.56397  2     1013
+siesta:     57.64801 -41.32266  55.32553  3     1014
+siesta:     55.16680 -39.83544  52.54008  3     1015
+siesta:     58.67035 -37.32589  53.60210  2     1016
+siesta:     59.07286 -37.92115  51.68781  1     1017
+siesta:     57.88044 -35.40781  53.51329  1     1018
+siesta:     61.19503 -37.12179  55.04963  2     1019
+siesta:     62.02840 -34.66893  54.81342  3     1020
+siesta:     60.69047 -37.35990  57.55730  3     1021
+siesta:     63.44569 -38.90948  54.43358  2     1022
+siesta:     64.78551 -38.84523  55.99639  1     1023
+siesta:     62.66523 -40.82944  54.32965  1     1024
+siesta:     65.03495 -38.55610  52.01284  2     1025
+siesta:     66.48626 -40.66314  51.76718  3     1026
+siesta:     63.45703 -38.66759  49.95871  3     1027
+siesta:     66.75460 -36.23551  51.65379  2     1028
+siesta:     67.69758 -36.50007  49.84911  1     1029
+siesta:     65.54707 -34.57444  51.46104  1     1030
+siesta:     68.88999 -35.62135  53.52651  2     1031
+siesta:     69.36620 -37.79076  54.84554  3     1032
+siesta:     71.02349 -35.21506  52.14701  3     1033
+siesta:     68.60275 -33.51053  55.52962  2     1034
+siesta:     66.65067 -32.82645  55.50506  1     1035
+siesta:     68.85976 -34.43649  57.34565  1     1036
+siesta:     70.33374 -31.15026  55.45592  2     1037
+siesta:     69.58541 -29.74241  53.43770  3     1038
+siesta:     69.68746 -29.65926  57.47604  3     1039
+siesta:     73.26093 -31.28443  55.36522  2     1040
+siesta:     73.79950 -31.52820  53.38856  1     1041
+siesta:     73.94501 -29.44194  55.88489  1     1042
+siesta:     74.79161 -33.14959  56.99227  2     1043
+siesta:     73.17589 -34.64436  58.33398  3     1044
+siesta:     75.96324 -34.81633  55.43325  3     1045
+siesta:     76.78338 -32.17827  58.87066  2     1046
+siesta:     77.65455 -33.82422  59.75316  1     1047
+siesta:     78.27249 -31.26553  57.73683  1     1048
+siesta:     76.14465 -30.32445  61.05330  2     1049
+siesta:     78.17233 -30.33768  62.63122  3     1050
+siesta:     76.18245 -27.94717  60.09709  3     1051
+siesta:     73.75982 -30.67783  62.64445  2     1052
+siesta:     72.24048 -31.00286  61.33298  1     1053
+siesta:     73.99981 -32.42015  63.76694  1     1054
+siesta:     72.88866 -28.61046  64.49260  2     1055
+siesta:     70.92523 -29.58178  65.78328  3     1056
+siesta:     74.71602 -28.32890  66.28028  3     1057
+siesta:     72.11765 -25.96485  63.50994  2     1058
+siesta:     73.85431 -24.98219  63.06963  1     1059
+siesta:     71.07830 -26.28610  61.76005  1     1060
+siesta:     70.47925 -24.17150  65.12566  2     1061
+siesta:     68.06229 -25.02943  65.03495  3     1062
+siesta:     71.18601 -24.40960  67.60498  3     1063
+siesta:     70.38477 -21.34069  64.42835  2     1064
+siesta:     72.31607 -20.68684  64.22804  1     1065
+siesta:     69.45313 -21.21785  62.61421  1     1066
+siesta:     69.02416 -19.39616  66.09698  2     1067
+siesta:     69.09975 -17.15494  64.80440  3     1068
+siesta:     66.55051 -20.00465  66.17446  3     1069
+siesta:     69.96525 -18.93317  68.81062  2     1070
+siesta:     69.42101 -20.61125  69.93123  1     1071
+siesta:     72.03639 -18.85569  68.70102  1     1072
+siesta:     69.08464 -16.55779  70.30351  2     1073
+siesta:     69.95013 -14.45830  69.09408  3     1074
+siesta:     66.51461 -16.40283  70.06351  3     1075
+siesta:     69.65533 -16.32535  73.15322  2     1076
+siesta:     68.75015 -14.60381  73.79006  1     1077
+siesta:     68.69724 -17.88626  74.09997  1     1078
+siesta:     72.41244 -16.28189  74.09808  2     1079
+siesta:     72.96613 -18.69885  74.79917  3     1080
+siesta:     73.94501 -15.86048  72.06851  3     1081
+siesta:     73.15889 -14.51877  76.32040  2     1082
+siesta:     72.02505 -15.04601  77.96446  1     1083
+siesta:     75.11286 -14.97986  76.78149  1     1084
+siesta:     73.02094 -11.61237  76.00859  2     1085
+siesta:     75.36798 -10.68263  76.37520  3     1086
+siesta:     72.52772 -11.13049  73.55195  3     1087
+siesta:     71.24837 -10.01366  77.68667  2     1088
+siesta:     70.56618 -11.22876  79.19845  1     1089
+siesta:     72.40300  -8.56802  78.56728  1     1090
+siesta:     68.92968  -8.65684  76.52260  2     1091
+siesta:     67.37065 -10.47287  75.53805  3     1092
+siesta:     67.60120  -7.62316  78.44067  3     1093
+siesta:     69.22447  -6.58948  74.50815  2     1094
+siesta:     69.67045  -7.50600  72.74126  1     1095
+siesta:     67.36309  -5.77312  74.31351  1     1096
+siesta:     71.08775  -4.38795  74.88988  2     1097
+siesta:     73.41778  -5.37438  75.37176  3     1098
+siesta:     71.35987  -3.24466  72.61653  3     1099
+siesta:     70.49815  -2.29413  76.84007  2     1100
+siesta:     68.88999  -1.22643  76.12009  1     1101
+siesta:     69.89533  -3.18797  78.60130  1     1102
+siesta:     72.57496  -0.36283  77.55439  2     1103
+siesta:     74.16800  -1.50611  79.19467  3     1104
+siesta:     73.95635   0.06614  75.45113  3     1105
+siesta:     71.88899   2.27901  78.63343  2     1106
+siesta:     73.67667   3.26923  78.87531  1     1107
+siesta:     70.82885   3.22954  77.18589  1     1108
+siesta:     70.46414   2.55302  81.16755  2     1109
+siesta:     68.46292   0.91841  81.09007  3     1110
+siesta:     71.98537   1.65918  83.02515  3     1111
+siesta:     69.42101   5.13628  81.98580  2     1112
+siesta:     69.96714   6.42696  80.48725  1     1113
+siesta:     67.38199   4.98132  81.98958  1     1114
+siesta:     70.22603   6.37027  84.48591  2     1115
+siesta:     72.78661   6.51389  84.50103  3     1116
+siesta:     69.44179   8.81747  84.41599  3     1117
+siesta:     69.37565   5.21943  87.04649  2     1118
+siesta:     68.09631   3.65662  86.59862  1     1119
+siesta:     71.06318   4.42952  87.97435  1     1120
+siesta:     68.06040   6.84270  89.09873  2     1121
+siesta:     67.86954   5.41218  91.24546  3     1122
+siesta:     69.69502   8.71353  89.79604  3     1123
+siesta:     65.44502   8.06913  88.65654  2     1124
+siesta:     64.95558   9.12549  90.36674  1     1125
+siesta:     65.64911   9.41462  87.13153  1     1126
+siesta:     63.11499   6.48176  87.93277  2     1127
+siesta:     63.52695   4.04591  88.62063  3     1128
+siesta:     61.16668   7.27545  89.43699  3     1129
+siesta:     62.09831   6.40995  85.20967  2     1130
+siesta:     63.27750   5.11927  84.14198  1     1131
+siesta:     60.21993   5.57280  85.33818  1     1132
+siesta:     61.88478   8.85337  83.63742  2     1133
+siesta:     61.76761  10.83758  85.24747  3     1134
+siesta:     64.09198   9.15006  82.37508  3     1135
+siesta:     59.73238   9.18029  81.67400  2     1136
+siesta:     59.90623  11.08514  80.89543  1     1137
+siesta:     60.05552   7.83103  80.14143  1     1138
+siesta:     56.94692   8.85715  82.44311  2     1139
+siesta:     56.40646   6.39673  82.11052  3     1140
+siesta:     56.76551   9.29368  84.97535  3     1141
+siesta:     54.82854  10.34059  81.07873  2     1142
+siesta:     55.57687  12.21330  80.63654  1     1143
+siesta:     54.47516   9.36738  79.29483  1     1144
+siesta:     52.23583  10.69207  82.40721  2     1145
+siesta:     51.85033   8.70030  84.01537  3     1146
+siesta:     52.48905  12.73487  83.95112  3     1147
+siesta:     49.81887  11.07758  80.78204  2     1148
+siesta:     50.08154  12.83125  79.75970  1     1149
+siesta:     49.77541   9.51100  79.44979  1     1150
+siesta:     47.20916  11.24954  82.04438  2     1151
+siesta:     46.77830   9.05935  83.32184  3     1152
+siesta:     47.36600  13.07313  83.83962  3     1153
+siesta:     44.84889  11.79945  80.40221  2     1154
+siesta:     45.04164  13.71942  79.67277  1     1155
+siesta:     44.90369  10.43318  78.86775  1     1156
+siesta:     42.19760  11.58592  81.56061  2     1157
+siesta:     41.32455   9.20675  81.07495  3     1158
+siesta:     42.44705  11.75599  84.11174  3     1159
+siesta:     40.11512  13.47186  80.79338  2     1160
+siesta:     38.44271  12.99754  81.88565  1     1161
+siesta:     40.74440  15.33513  81.39999  1     1162
+siesta:     39.28553  13.77044  78.02682  2     1163
+siesta:     39.47828  16.26488  77.42589  3     1164
+siesta:     41.07888  12.63660  76.52638  3     1165
+siesta:     36.64747  12.90117  77.15188  2     1166
+siesta:     35.30577  14.27689  77.86242  1     1167
+siesta:     36.65314  13.03156  75.09775  1     1168
+siesta:     35.64025  10.24988  77.84730  2     1169
+siesta:     37.57344   8.61526  77.45424  3     1170
+siesta:     35.21128  10.17240  80.36819  3     1171
+siesta:     33.32722   9.15762  76.45268  2     1172
+siesta:     33.68060   9.39572  74.44012  1     1173
+siesta:     33.32155   7.12427  76.84763  1     1174
+siesta:     30.61358  10.13838  76.99881  2     1175
+siesta:     28.97896   8.44897  75.98592  3     1176
+siesta:     30.21862   9.93618  79.55750  3     1177
+siesta:     29.69895  12.81802  76.26371  2     1178
+siesta:     27.68639  12.83314  76.57740  1     1179
+siesta:     30.53610  14.14839  77.59597  1     1180
+siesta:     30.13358  13.91028  73.58785  2     1181
+siesta:     32.61858  13.67217  72.98692  3     1182
+siesta:     28.99030  12.41551  71.84364  3     1183
+siesta:     29.33990  16.65794  72.97180  2     1184
+siesta:     29.38336  16.82235  70.91767  1     1185
+siesta:     27.38781  16.83936  73.58407  1     1186
+siesta:     30.84034  18.92372  74.06973  2     1187
+siesta:     29.51942  21.05723  73.49904  3     1188
+siesta:     30.70050  18.78389  76.63787  3     1189
+siesta:     33.66737  19.33002  73.36298  2     1190
+siesta:     34.80877  18.31901  74.74059  1     1191
+siesta:     33.98296  18.42106  71.50915  1     1192
+siesta:     34.77664  22.02288  73.15322  2     1193
+siesta:     34.09445  23.38348  75.25270  3     1194
+siesta:     37.32400  21.79044  73.45557  3     1195
+siesta:     34.21728  23.68206  70.80429  2     1196
+siesta:     32.20850  23.47797  70.36020  1     1197
+siesta:     34.56121  25.64737  71.39766  1     1198
+siesta:     35.65915  23.22663  68.31930  2     1199
+siesta:     36.27709  20.73597  68.29095  3     1200
+siesta:     33.97351  23.54600  66.40311  3     1201
+siesta:     38.07233  24.72897  67.63332  2     1202
+siesta:     37.57911  26.70562  67.82797  1     1203
+siesta:     39.50663  24.26220  69.06952  1     1204
+siesta:     39.28175  24.41716  65.01794  2     1205
+siesta:     37.80399  25.71540  63.35309  3     1206
+siesta:     41.50974  25.68706  65.03684  3     1207
+siesta:     39.77119  21.76398  63.95025  2     1208
+siesta:     40.85967  20.76810  65.39211  1     1209
+siesta:     37.93627  20.82857  63.78017  1     1210
+siesta:     41.14124  21.40116  61.37455  2     1211
+siesta:     39.81277  22.66727  59.56986  3     1212
+siesta:     43.40703  22.64838  61.49549  3     1213
+siesta:     41.64958  18.73664  60.28607  2     1214
+siesta:     39.87324  18.06201  59.47915  1     1215
+siesta:     43.00074  18.96530  58.73271  1     1216
+siesta:     42.70405  16.62393  62.00572  2     1217
+siesta:     44.62779  17.63115  63.36254  3     1218
+siesta:     40.89747  16.09858  63.76316  3     1219
+siesta:     43.63568  14.05957  60.98716  2     1220
+siesta:     45.58966  14.33358  60.39378  1     1221
+siesta:     43.69049  12.73676  62.55185  1     1222
+siesta:     42.28075  12.75188  58.74972  2     1223
+siesta:     39.76552  12.76322  59.25050  3     1224
+siesta:     42.51508  14.25610  56.70314  3     1225
+siesta:     43.02341  10.03823  57.96548  2     1226
+siesta:     45.05865  10.09492  57.58376  1     1227
+siesta:     42.69271   8.81369  59.59632  1     1228
+siesta:     41.76863   8.76455  55.67324  2     1229
+siesta:     39.36112   9.61682  55.49939  3     1230
+siesta:     42.91003   9.72642  53.58699  3     1231
+siesta:     41.75918   5.86382  55.34443  2     1232
+siesta:     41.12424   5.04179  57.09621  1     1233
+siesta:     40.39291   5.43108  53.88556  1     1234
+siesta:     44.22339   4.49377  54.62445  2     1235
+siesta:     46.11312   5.47265  56.06442  3     1236
+siesta:     44.06276   2.05602  55.46537  3     1237
+siesta:     45.14935   4.53157  51.84466  2     1238
+siesta:     44.44827   6.29468  50.98861  1     1239
+siesta:     47.19782   4.66385  51.91458  1     1240
+siesta:     44.50496   2.36783  50.00595  2     1241
+siesta:     45.96194   2.78357  47.93481  3     1242
+siesta:     45.47061   0.17008  50.93759  3     1243
+siesta:     41.80643   1.97476  49.01952  2     1244
+siesta:     40.67259   3.60182  49.55809  1     1245
+siesta:     41.93682   1.94453  46.97672  1     1246
+siesta:     40.31543  -0.38739  49.80186  2     1247
+siesta:     38.72617   0.22110  51.72560  3     1248
+siesta:     38.79798  -1.14706  47.87056  3     1249
+siesta:     41.54187  -1.94264  50.35177  1     1250
+siesta:     18.97286  21.65627   8.82502  4     1251
+siesta:     24.43228  21.65627   8.82502  4     1252
+siesta:     13.51344  21.65627   8.82502  4     1253
+siesta:     21.70351  26.38437   8.82502  4     1254
+siesta:     21.70351  16.92817   8.82502  4     1255
+siesta:     16.24220  26.38437   8.82502  4     1256
+siesta:     16.24220  16.92817   8.82502  4     1257
+siesta:     18.97286  24.80833  13.28289  4     1258
+siesta:     18.97286  15.35214  13.28289  4     1259
+siesta:     21.70351  20.08024  13.28289  4     1260
+siesta:     16.24220  20.08024  13.28289  4     1261
+siesta:     24.43228  24.80833  13.28289  4     1262
+siesta:     13.51344  24.80833  13.28289  4     1263
+siesta:     21.70351  23.23230  24.35480  4     1264
+siesta:     16.24220  23.23230  24.35480  4     1265
+siesta:     18.97286  18.50421  24.35480  4     1266
+siesta:     18.97286  27.96040  24.35480  4     1267
+siesta:     13.51344  18.50421  24.35480  4     1268
+siesta:     24.43228  18.50421  24.35480  4     1269
+siesta:     24.43228  21.65627  28.81267  4     1270
+siesta:     13.51344  21.65627  28.81267  4     1271
+siesta:     21.70351  26.38437  28.81267  4     1272
+siesta:     21.70351  16.92817  28.81267  4     1273
+siesta:     16.24220  26.38437  28.81267  4     1274
+siesta:     16.24220  16.92817  28.81267  4     1275
+siesta:     18.97286  21.65627  28.81267  4     1276
+siesta:     18.97286  24.80833  33.27053  4     1277
+siesta:     18.97286  15.35214  33.27053  4     1278
+siesta:     21.70351  20.08024  33.27053  4     1279
+siesta:     16.24220  20.08024  33.27053  4     1280
+siesta:     24.43228  24.80833  33.27053  4     1281
+siesta:     13.51344  24.80833  33.27053  4     1282
+
+siesta: System type = bulk      
+
+initatomlists: Number of atoms, orbitals, and projectors:   1282 13386 17586
+
+siesta: ******************** Simulation parameters ****************************
+siesta:
+siesta: The following are some of the parameters of the simulation.
+siesta: A complete list of the parameters used, including default values,
+siesta: can be found in file out.fdf
+siesta:
+redata: Non-Collinear-spin run           =     F
+redata: SpinPolarized (Up/Down) run      =     F
+redata: Number of spin components        =     1
+redata: Long output                      =     F
+redata: Number of Atomic Species         =        4
+redata: Charge density info will appear in .RHO file
+redata: Write Mulliken Pop.              =     Atomic and Orbital charges
+redata: Mesh Cutoff                      =   500.0000  Ry
+redata: Net charge of the system         =     0.0000 |e|
+redata: Max. number of SCF Iter          =      200
+redata: Performing Pulay mixing using    =     7 iterations
+redata: Mix DM in first SCF step ?       =     F
+redata: Write Pulay info on disk?        =     F
+redata: Discard 1st Pulay DM after  kick =     F
+redata: New DM Mixing Weight             =     0.1000
+redata: New DM Occupancy tolerance       = 0.000000000001
+redata: No kicks to SCF
+redata: DM Mixing Weight for Kicks       =     0.5000
+redata: DM Tolerance for SCF             =     0.000100
+redata: Require Energy convergence for SCF =     F
+redata: DM Energy tolerance for SCF      =     0.000100 eV
+redata: Require Harris convergence for SCF =     F
+redata: DM Harris energy tolerance for SCF =     0.000100 eV
+redata: Using Saved Data (generic)   =     T
+redata: Use continuation files for DM    =     T
+redata: Neglect nonoverlap interactions  =     F
+redata: Method of Calculation            =     Diagonalization
+redata: Divide and Conquer               =     T
+redata: Electronic Temperature           =     0.0019  Ry
+redata: Fix the spin of the system       =     F
+redata: Dynamics option                  =     CG coord. optimization
+redata: Variable cell                    =     F
+redata: Use continuation files for CG    =     T
+redata: Max atomic displ per move        =     0.2000  Bohr
+redata: Maximum number of CG moves       =        0
+redata: Force tolerance                  =     0.0016  Ry/Bohr
+redata: ***********************************************************************
+Total number of electrons:  5346.000000
+Total ionic charge:  5346.000000
+
+* ProcessorY, Blocksize:    8  24
+
+ Kpoints in:            1 . Kpoints trimmed:            1
+
+siesta: k-grid: Number of k-points =     1
+siesta: k-grid: Cutoff (effective) =    11.267 Ang
+siesta: k-grid: Supercell and displacements
+siesta: k-grid:    1   0   0      0.000
+siesta: k-grid:    0   1   0      0.000
+siesta: k-grid:    0   0   1      0.000
+Naive supercell factors:     2    2    2
+
+superc: Internal auxiliary supercell:     2 x     2 x     2  =       8
+superc: Number of atoms, orbitals, and projectors:  10256 107088 140688
+
+* Maximum dynamic memory allocated =    11 MB
+
+siesta:                 ==============================
+                            Begin CG move =      0
+                        ==============================
+
+superc: Internal auxiliary supercell:     2 x     2 x     2  =       8
+superc: Number of atoms, orbitals, and projectors:  10256 107088 140688
+
+outcell: Unit cell vectors (Ang):
+       22.534000    0.000000    0.000000
+        0.000000   24.472000    0.000000
+        0.000000    0.000000   23.649000
+
+outcell: Cell vector modules (Ang)   :   22.534000   24.472000   23.649000
+outcell: Cell angles (23,13,12) (deg):     90.0000     90.0000     90.0000
+outcell: Cell volume (Ang**3)        :  13041.2895
+New_DM. Step:     1
+Initializing Density Matrix...
+
+InitMesh: MESH =   320 x   360 x   320 =    36864000
+InitMesh: Mesh cutoff (required, used) =   500.000   506.030 Ry
+efield: WARNING: Non zero bulk electric field.
+efield: Input field (Ry/Bohr/e) =    0.000000    0.000000    0.000389
+
+efield: Orthogonalized field    =    0.000000    0.000000    0.000000
+
+* Maximum dynamic memory allocated =   504 MB
+
+stepf: Fermi-Dirac step function
+
+siesta: Program's energy decomposition (eV):
+siesta: Ebs     =    -91641.726252
+siesta: Eions   =    528240.073050
+siesta: Ena     =     62912.944708
+siesta: Ekin    =    252981.849961
+siesta: Enl     =    -84451.162064
+siesta: DEna    =        -0.013125
+siesta: DUscf   =         0.000000
+siesta: DUext   =         0.000000
+siesta: Exc     =    -79487.638276
+siesta: eta*DQ  =         0.000000
+siesta: Emadel  =         0.000000
+siesta: Emeta   =         0.000000
+siesta: Emolmec =         0.000000
+siesta: Ekinion =         0.000000
+siesta: Eharris =   -375666.516636
+siesta: Etot    =   -376284.091846
+siesta: FreeEng =   -376284.091846
+
+siesta: iscf   Eharris(eV)      E_KS(eV)   FreeEng(eV)   dDmax  Ef(eV)
+siesta:    1  -375666.5166  -376284.0918  -376284.0918  1.8700 -3.8688
+timer: Routine,Calls,Time,% = IterSCF        1   55092.282  99.14
+elaps: Routine,Calls,Wall,% = IterSCF        1     861.489  99.16
+64 total processes killed (some possibly by mpiexec during cleanup)
