@@ -1,0 +1,28 @@
+#! /bin/csh -f
+
+### Input parameters
+set Min_Energy 	= -30.0
+set Max_Energy 	=  20
+set NPTS 	= 1000
+set SMEAR 	= 0.1
+set run_pdos 	= pdos
+#set run_coop 	= coop
+#mprop -m -30 -M 30 -n 1000 -s 0.1 pdos
+###--------------------###
+# default number of points (NPTS) is 200
+# default smear is 0.5 (which is good for bulk material)
+
+
+### Clean up the waste
+
+### Prepare the input data from Siesta 3.x
+cp ../opt_dos.HSX .
+cp ../opt_dos.fullBZ.WFSX .
+mv opt_dos.fullBZ.WFSX file.WFSX
+cp ../opt_dos.xyz .
+cp ../opt_dos.EIG .
+
+
+### Run mprop to get PDOS, COOP and COHP
+mprop -m $Min_Energy -M $Max_Energy -n $NPTS -s $SMEAR $run_pdos
+

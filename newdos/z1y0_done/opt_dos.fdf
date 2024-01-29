@@ -1,0 +1,55 @@
+SystemName          opt_dos
+SystemLabel         opt_dos
+NumberOfAtoms       1282
+NumberOfSpecies     4
+
+%block ChemicalSpeciesLabel
+ 1   1   H
+ 2   6   C
+ 3   9   F
+ 4  47   Ag
+%endblock ChemicalSpeciesLabel
+
+LatticeConstant 1.0 Ang
+
+AtomicCoordinatesFormat Ang
+
+UseStructFile .true.
+
+%block WaveFuncKPoints
+   0.000   0.000   0.000 from 210 to 225 # gamma point, start MO, end MO
+%endblock WaveFuncKPoints
+
+SpinPolarized .true.
+
+MD.TypeOfRun  CG
+MD.NumCGsteps 0
+MD.VariableCell .false.
+SolutionMethod diagon
+XC.functional GGA
+XC.authors PBE
+PAO.BasisSize   DZP
+DM.NumberPulay 7
+DM.MixingWeight 0.1
+DM.NumberKick 50
+DM.KickMixingWeight 0.01
+MaxSCFIterations 400
+WriteMullikenPop 1
+UseSaveData .true.
+Diag.Memory 5.0
+
+SaveRho .true.
+LocalDensityOfStates .true.
+
+DM.UseSaveDM		.true.
+WriteCoorXmol           .true.
+WriteWaveFunctions      .true.
+WriteEigenvalues        .true.
+WriteDenchar            .true.
+WriteDM                 .true.
+WriteMDXmol             .true.
+WriteDM.NetCDF          .true.
+WriteDMHS.NetCDF        .true.
+WriteKpoints            .true.
+LongOutput              .true.
+COOP.Write              .true.

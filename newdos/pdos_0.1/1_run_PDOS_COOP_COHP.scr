@@ -1,0 +1,28 @@
+#! /bin/csh -f
+
+### Input parameters
+set Min_Energy 	= -30.0
+set Max_Energy 	=  30
+set NPTS 	= 1000
+set SMEAR 	= 0.1
+#set run_coop 	= coop
+
+###--------------------###
+# default number of points (NPTS) is 200
+# default smear is 0.5 (which is good for bulk material)
+
+
+### Prepare the input data from Siesta 3.x
+cp ../*.HSX .
+cp ../*.fullBZ.WFSX .
+cp opt_dos.fullBZ.WFSX opt_dos.WFSX
+cp ../*.xyz .
+cp ../*.EIG .
+
+# load siesta
+source /home/archita/siesta/siesta-4.1.5/siesta-vars.sh
+
+### Run mprop to get PDOS, COOP and COHP
+/home/archita/siesta/siesta-4.1.5/Util/COOP/mprop -m $Min_Energy -M $Max_Energy -n $NPTS -s $SMEAR pdos
+#/home/archita/siesta/siesta-4.1.5/Util/COOP/mprop -m -30 -M 30 -n 1000 -s 0.1 pdos
+
