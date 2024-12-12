@@ -12,5 +12,7 @@ Dielectric functions, dos values, energies are from SIESTA code
 
 *Plot_DOS* Various DOS and Polarization plots using siesta outputs for DOS, COHP, COOP from siesta_dos and new_dos folder.
 
+Folder optical_polymer_dielectric contains raw data and parsing notebooks for everything from dielectric function to absorption coefficient. Unfortunatly you will have to point to each file seperatly. 
+Use terminal command  'find  ./*' to print all paths/folders in path of '.' to shorten this process. 
 
 
